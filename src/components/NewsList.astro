@@ -1,5 +1,6 @@
 ---
 import allNews from "../data/news.json";
+import { withBase } from "../lib/url";
 
 const { limit, showMore = false } = Astro.props;
 
@@ -13,7 +14,8 @@ const items = [...allNews]
     <ul class="news-list">
       {items.map(item => (
         <li>
-          <a href={item.href}>
+          {/* <a href={withBase(item.href)}> */}
+          <a >
             <time class="news-date" datetime={item.date}>{item.date}</time>
             <span class="news-title">
               {item.tag && <span class="news-tag">【{item.tag}】</span>}
@@ -24,6 +26,6 @@ const items = [...allNews]
       ))}
     </ul>
 
-    {showMore && <a class="news-more" href="/news">查看更多消息</a>}
+    {showMore && <a class="news-more" href={withBase("/news")}>查看更多消息</a>}
   </div>
 </section>

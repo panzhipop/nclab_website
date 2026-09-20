@@ -56,6 +56,10 @@
   --measure: 1120px;
   --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
           system-ui, -apple-system, sans-serif;
+
+  /* 左上角標誌字樣專用。只有英文，所以用不含中文字集的圓體；
+     萬一字型沒載入，會退回 --sans 而不是系統預設襯線體 */
+  --brand-font: "Nunito", var(--sans);
 }
 
 /* 手動切換時，鎖定 color-scheme 覆蓋系統偏好 */
@@ -208,8 +212,9 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: var(--brand-font);
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .02em;
   color: var(--brand);
   flex: none;

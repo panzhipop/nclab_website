@@ -3,6 +3,7 @@ import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import site from "../data/site.json";
+import { withBase } from "../lib/url";
 
 const { title, description = site.tagline, current } = Astro.props;
 ---
@@ -16,7 +17,7 @@ const { title, description = site.tagline, current } = Astro.props;
     <meta name="description" content={description} />
 
     {/* 分頁圖標用 header 那顆 logo；沒有這行的話瀏覽器會去抓預設的 /favicon.ico */}
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" href={withBase("/logo.png")} />
 
     {/*
       這段一定要放在 <head>、一定要 is:inline、一定要在 CSS 之前。
@@ -36,7 +37,7 @@ const { title, description = site.tagline, current } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Nunito:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
   </head>

@@ -1,7 +1,7 @@
 {
   "name": "網路計算實驗室",
-  "shortName": "NCLAB",
-  "tagline": "侯廷偉 教授實驗室 ｜ nclab ｜ 國立成功大學工程科學系",
+  "shortName": "Network Computing Lab",
+  "tagline": "侯廷偉教授 實驗室 ｜ nclab ｜ 國立成功大學工程科學系",
   "nav": [
     { "label": "首頁",     "href": "/" },
     { "label": "最新消息", "href": "/news" },
@@ -13,7 +13,7 @@
     { "label": "活動花絮", "href": "/gallery" }
   ],
   "ticker": {
-    "text": "【最新公告】115 學年度碩士班招生中，歡迎對燃燒與推進有興趣的同學來信詢問",
+    "text": "【招生訊息】歡迎對網路系統、分散式運算有興趣的同學來信洽詢碩士班與大學部專題",
     "href": "/news"
   },
   "contact": {

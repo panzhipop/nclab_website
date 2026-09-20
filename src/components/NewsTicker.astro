@@ -1,10 +1,12 @@
 ---
 import site from "../data/site.json";
+import { withBase } from "../lib/url";
 const { text = site.ticker.text, href = site.ticker.href } = Astro.props;
 ---
 
 {text && (
   <div class="ticker">
-    {href ? <a href={href}>{text}</a> : text}
+    {/* {href ? <a href={withBase(href)}>{text}</a> : text} */}
+    {href ? <a >{text}</a> : text}
   </div>
 )}
