@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import NewsTicker from "../components/NewsTicker.astro";
+import NewsList from "../components/NewsList.astro";
+import site from "../data/site.json";
+---
+
+<BaseLayout current="/">
+  <PageHero title={site.name} subtitle={site.tagline} />
+  <NewsTicker />
+  <NewsList limit={5} showMore={true} />
+</BaseLayout>

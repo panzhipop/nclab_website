@@ -1,0 +1,18 @@
+---
+import site from "../data/site.json";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div>
+      <strong class="footer-name">{site.name}</strong><br />
+      {site.contact.address}
+    </div>
+    <div>
+      {site.contact.email}<br />
+      {site.contact.phone}
+    </div>
+    <div>© {year} {site.name}</div>
+  </div>
+</footer>

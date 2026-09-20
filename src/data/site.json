@@ -1,0 +1,24 @@
+{
+  "name": "網路計算實驗室",
+  "shortName": "NCLAB",
+  "tagline": "侯廷偉 教授實驗室 ｜ nclab ｜ 國立成功大學工程科學系",
+  "nav": [
+    { "label": "首頁",     "href": "/" },
+    { "label": "最新消息", "href": "/news" },
+    { "label": "實驗室簡介", "href": "/about" },
+    { "label": "指導教授", "href": "/pi" },
+    { "label": "實驗室成員", "href": "/members" },
+    { "label": "合作夥伴", "href": "/partners" },
+    { "label": "研究成果", "href": "/research" },
+    { "label": "活動花絮", "href": "/gallery" }
+  ],
+  "ticker": {
+    "text": "【最新公告】115 學年度碩士班招生中，歡迎對燃燒與推進有興趣的同學來信詢問",
+    "href": "/news"
+  },
+  "contact": {
+    "address": "台南市東區大學路 1 號 工程一館 501 室",
+    "email": "lab@example.edu.tw",
+    "phone": "06-000-0000"
+  }
+}

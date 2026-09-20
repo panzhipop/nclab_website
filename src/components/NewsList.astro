@@ -1,0 +1,29 @@
+---
+import allNews from "../data/news.json";
+
+const { limit, showMore = false } = Astro.props;
+
+const items = [...allNews]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, limit ?? allNews.length);
+---
+
+<section class="news">
+  <div class="wrap">
+    <ul class="news-list">
+      {items.map(item => (
+        <li>
+          <a href={item.href}>
+            <time class="news-date" datetime={item.date}>{item.date}</time>
+            <span class="news-title">
+              {item.tag && <span class="news-tag">【{item.tag}】</span>}
+              {item.title}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {showMore && <a class="news-more" href="/news">查看更多消息</a>}
+  </div>
+</section>

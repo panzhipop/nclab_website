@@ -1,0 +1,57 @@
+---
+import site from "../data/site.json";
+import ThemeToggle from "./ThemeToggle.astro";
+const { current = "/" } = Astro.props;
+---
+
+<header class="site-header" id="siteHeader">
+  <div class="lang-bar">
+    <a href="/" aria-current="true">中文版</a>
+    <a href="/en">English</a>
+    <ThemeToggle />
+  </div>
+
+  <div class="wrap header-row">
+    <a class="brand" href="/">
+      <img src="/logo.png" alt="" width="279" height="279" />
+      {site.shortName}
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="開啟選單"
+            aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      {site.nav.map(item => (
+        <a href={item.href} aria-current={item.href === current ? "page" : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("siteHeader");
+  const btn = header?.querySelector(".nav-toggle");
+
+  // 先一次確認兩個元素都在，後面就不用每行都寫 ?. 了
+  if (header && btn) {
+    const setOpen = (open: boolean) => {
+      header.dataset.open = String(open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "關閉選單" : "開啟選單");
+    };
+
+    btn.addEventListener("click", () => {
+      setOpen(header.dataset.open !== "true");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (header.dataset.open === "true" && !header.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    });
+  }
+</script>
