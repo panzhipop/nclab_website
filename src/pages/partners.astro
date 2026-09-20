@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import NewsTicker from "../components/NewsTicker.astro";
+import site from "../data/site.json";
+---
+
+<BaseLayout title="合作夥伴" current="/partners">
+  <PageHero title="合作夥伴" subtitle={site.tagline} />
+  <NewsTicker />
+</BaseLayout>

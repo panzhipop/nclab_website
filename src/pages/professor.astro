@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import NewsTicker from "../components/NewsTicker.astro";
+import site from "../data/site.json";
+---
+
+<BaseLayout title="指導教授" current="/professor">
+  <PageHero title="指導教授" subtitle={site.tagline} />
+  <NewsTicker />
+</BaseLayout>

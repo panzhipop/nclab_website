@@ -15,6 +15,9 @@ const { title, description = site.tagline, current } = Astro.props;
     <title>{title ? `${title}｜${site.name}` : site.name}</title>
     <meta name="description" content={description} />
 
+    {/* 分頁圖標用 header 那顆 logo；沒有這行的話瀏覽器會去抓預設的 /favicon.ico */}
+    <link rel="icon" type="image/png" href="/logo.png" />
+
     {/*
       這段一定要放在 <head>、一定要 is:inline、一定要在 CSS 之前。
       目的是在瀏覽器第一次畫面之前就把 data-theme 設好，
