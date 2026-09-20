@@ -505,6 +505,20 @@ a { color: inherit; text-decoration: none; }
   /* 窄螢幕塞不下 104px 的日期欄，改成日期與標題上下排列 */
   .news-item { grid-template-columns: 1fr; gap: 4px; }
   .news { padding: 48px 0 60px; }
+
+  /* 頁尾三塊改直向堆疊。橫向排列時 flex-wrap 會讓聯絡資訊和版權
+     擠在同一列，.footer-contact 的 flex:1 又去搶剩餘空間，
+     結果 email 被壓到斷行。這裡把 flex:1 收掉並改回靠左，
+     跟上下兩塊的對齊方式一致。 */
+  .footer-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-contact {
+    flex: none;
+    text-align: left;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
