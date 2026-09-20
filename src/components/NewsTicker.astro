@@ -7,8 +7,14 @@ import { withBase } from "../lib/url";
 const { text = site.tagline, href = null } = Astro.props;
 ---
 
-{text && (
-  <div class="ticker">
-    {href ? <a href={withBase(href)}>{text}</a> : text}
-  </div>
-)}
+{/*
+  暫時隱藏整條淺藍橫條。
+  8 個頁面的 <NewsTicker /> 呼叫都保留著沒動，所以要恢復只要把
+  下面這段的註解符號拆掉即可，不必回頭改每個頁面。
+
+  {text && (
+    <div class="ticker">
+      {href ? <a href={withBase(href)}>{text}</a> : text}
+    </div>
+  )}
+*/}
