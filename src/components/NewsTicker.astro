@@ -1,6 +1,7 @@
 ---
 import site from "../data/site.json";
 import { withBase } from "../lib/url";
+
 // 淺藍橫條，預設顯示站台標語（原本放在 PageHero 的 subtitle）。
 // 個別頁面要換成別的文字就傳 text，需要做成連結再傳 href。
 const { text = site.tagline, href = null } = Astro.props;
@@ -8,7 +9,6 @@ const { text = site.tagline, href = null } = Astro.props;
 
 {text && (
   <div class="ticker">
-    {/* {href ? <a href={withBase(href)}>{text}</a> : text} */}
-    {href ? <a >{text}</a> : text}
+    {href ? <a href={withBase(href)}>{text}</a> : text}
   </div>
 )}

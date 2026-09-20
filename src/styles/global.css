@@ -4,7 +4,9 @@
    前一行是給舊瀏覽器的 fallback，不支援的會忽略下一行
    ============================================================ */
 :root {
-  color-scheme: light dark;
+  /* 預設淺色，不跟隨系統偏好 —— 只有使用者按了切換鈕
+     （寫入 data-theme="dark"）才會變深色 */
+  color-scheme: light;
 
   --bg:        #ffffff;
   --bg:        light-dark(#ffffff, #0b1220);
@@ -36,8 +38,16 @@
   --brand-initial: #77216f;
   --brand-initial: light-dark(#77216f, #FFFFFF);
 
-  /* 強調淺藍：只用在 header 底線、nav 底線這類裝飾線條，深淺色共用 */
+  /* 強調淺藍：只用在 nav 底線這類裝飾線條，深淺色共用 */
   --accent:    #b4dcff;
+
+  /* 導覽列那一排的底色。深色模式要壓深，淺藍整條在夜間會發光 */
+  --nav-bg: #b4dcff;
+  --nav-bg: light-dark(#b4dcff, #14365e);
+
+  /* 目前頁面的底線。深色模式底色變深藍，深色底線會看不見，改用淺藍 */
+  --nav-underline: #0f3c73;
+  --nav-underline: light-dark(#0f3c73, #b4dcff);
 
   --ticker-bg: #b4dcff;
   --ticker-bg: light-dark(#b4dcff, #14365e);
@@ -58,6 +68,10 @@
   --icon-moon: .38;
 
   --header-h: 76px;
+
+  /* 導覽列橫條與標語橫條共用的高度。兩者都靠 min-height 對齊，
+     而不是各自調內距去湊 —— 改一個值兩條就同步 */
+  --bar-h: 52px;
   --measure: 1120px;
   --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei",
           system-ui, -apple-system, sans-serif;
@@ -67,21 +81,13 @@
   --brand-font: "Nunito", var(--sans);
 }
 
-/* 手動切換時，鎖定 color-scheme 覆蓋系統偏好 */
+/* 深色只有一個觸發條件：使用者手動切換寫入的 data-theme="dark"。
+   light 那條在 color-scheme 已是 light 的情況下是多餘的，
+   但明寫出來比較不會讓人以為漏了一半。 */
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"]  { color-scheme: dark; }
 
-/* 深色模式的開關狀態：圓鈕滑到右邊（月亮），兩顆圖示的亮暗對調。
-   兩個分支分別對應「跟隨系統偏好」與「使用者手動切成深色」，
-   :not([data-theme="light"]) 是為了讓手動選淺色時壓得過系統偏好。 */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --knob-x:    26px;
-    --icon-sun:  .38;
-    --icon-moon: 1;
-  }
-}
-
+/* 深色模式的開關外觀：圓鈕滑到右邊（月亮），兩顆圖示的亮暗對調 */
 :root[data-theme="dark"] {
   --knob-x:    26px;
   --icon-sun:  .38;
@@ -125,7 +131,6 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   z-index: 50;
   background: var(--surface);
-  border-bottom: 4px solid var(--accent);
 }
 
 /* 第一排：標誌靠左、語言列靠右。
@@ -218,7 +223,10 @@ a { color: inherit; text-decoration: none; }
 .header-row {
   display: flex;
   justify-content: center;
-  padding: 0 24px 10px;
+  align-items: center;
+  min-height: var(--bar-h);
+  padding: 0 24px;
+  background: var(--nav-bg);
 }
 
 .brand {
@@ -279,7 +287,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   left: 14px; right: 14px; bottom: 2px;
   height: 2px;
-  background: var(--accent);
+  background: var(--nav-underline);
   transform: scaleX(0);
   transition: transform .18s ease;
 }
@@ -313,8 +321,8 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 132px;
-  padding: 28px 24px;
+  min-height: 92px;
+  padding: 16px 24px;
   text-align: center;
   color: #fff;
   overflow: hidden;
@@ -332,7 +340,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-size: clamp(1.3rem, 2.8vw, 1.75rem);
   font-weight: 700;
   letter-spacing: .22em;
   text-indent: .22em;
@@ -343,9 +351,13 @@ a { color: inherit; text-decoration: none; }
    紅色公告條
    ============================================================ */
 .ticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--bar-h);
   background: var(--ticker-bg);
   color: var(--ticker-fg);
-  padding: 15px 24px;
+  padding: 8px 24px;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
@@ -429,6 +441,14 @@ a { color: inherit; text-decoration: none; }
 
 .footer-name { color: var(--brand); font-weight: 700; }
 
+/* 聯絡資訊置中。flex:1 是必要的 —— flex 項目預設是收縮到內容寬度，
+   只寫 text-align:center 等於在自己那點寬度裡置中，看不出效果。
+   給它 1 讓它吃掉左右兩塊之間的剩餘空間，文字才會落在正中央 */
+.footer-contact {
+  flex: 1;
+  text-align: center;
+}
+
 /* ============================================================
    手機
    ============================================================ */
@@ -468,8 +488,9 @@ a { color: inherit; text-decoration: none; }
 
   /* 下拉選單改以 .site-header 為定位基準（它是 sticky，會建立包含
      區塊），所以 top:100% 指的是整個 header 的下緣。
-     導覽列那排在手機是空的，把內距歸零免得撐出空白。 */
-  .header-row { padding: 0; }
+     導覽列那排在手機是空的，內距和 min-height 都要歸零，
+     否則會留下一條 52px 高、什麼都沒有的藍色橫條。 */
+  .header-row { padding: 0; min-height: 0; }
 
   .brand { gap: 10px; }
   .brand svg,

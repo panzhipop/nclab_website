@@ -18,30 +18,24 @@
 <script>
   const root = document.documentElement;
   const btn = document.getElementById("themeToggle");
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
 
-  // 目前實際呈現的模式：手動設定優先，否則跟系統
-  const current = () => root.dataset.theme || (media.matches ? "dark" : "light");
+  if (btn) {
+    // 預設淺色，不看系統偏好。只有 data-theme 明確是 dark 才算深色。
+    const current = () => (root.dataset.theme === "dark" ? "dark" : "light");
 
-  const sync = () => {
-    const label = current() === "dark" ? "切換淺色模式" : "切換深色模式";
-    btn.setAttribute("aria-label", label);
-    btn.setAttribute("title", label);
-  };
+    const sync = () => {
+      const label = current() === "dark" ? "切換淺色模式" : "切換深色模式";
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+    };
 
-  btn.addEventListener("click", () => {
-    const next = current() === "dark" ? "light" : "dark";
-    root.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
+    btn.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch {}
+      sync();
+    });
+
     sync();
-  });
-
-  // 使用者沒手動選過的話，跟著系統設定即時變動
-  media.addEventListener("change", () => {
-    let saved = null;
-    try { saved = localStorage.getItem("theme"); } catch {}
-    if (!saved) sync();
-  });
-
-  sync();
+  }
 </script>

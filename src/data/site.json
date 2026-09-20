@@ -2,7 +2,7 @@
   "org": "國立成功大學",
   "name": "網路計算實驗室",
   "shortName": "Network Computing Lab",
-  "tagline": "侯廷偉教授 實驗室 ｜ NCLAB ｜ 國立成功大學工程科學系",
+  "tagline": "國立成功大學 工程科學系 侯廷偉 教授 實驗室",
   "nav": [
     { "label": "首頁",     "href": "/" },
     { "label": "實驗室簡介", "href": "/about" },
