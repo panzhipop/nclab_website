@@ -1,5 +1,5 @@
 ---
-const { title, subtitle, image } = Astro.props;
+const { title, image } = Astro.props;
 ---
 
 <section
@@ -10,6 +10,5 @@ const { title, subtitle, image } = Astro.props;
 >
   <div>
     <h1>{title}</h1>
-    {subtitle && <p>{subtitle}</p>}
   </div>
 </section>

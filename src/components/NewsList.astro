@@ -1,31 +1,55 @@
 ---
 import allNews from "../data/news.json";
-import { withBase } from "../lib/url";
 
 const { limit, showMore = false } = Astro.props;
 
-const items = [...allNews]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, limit ?? allNews.length);
+const sorted = [...allNews].sort((a, b) => b.date.localeCompare(a.date));
+
+// 有「查看更多」時，全部消息都先渲染進 HTML，超出 visibleCount 的用 CSS
+// 藏起來，按鈕只負責把它們顯示出來。這樣展開是就地發生的，不會換頁，
+// 也就不會跳回頁首。代價是 HTML 會多帶幾則消息的內容，
+// 以目前的資料量（8 則純文字）可以忽略。
+const visibleCount = limit ?? sorted.length;
+const items = showMore ? sorted : sorted.slice(0, visibleCount);
+const hasMore = showMore && sorted.length > visibleCount;
 ---
 
-<section class="news">
+<section class="news" data-expanded="false">
   <div class="wrap">
     <ul class="news-list">
-      {items.map(item => (
-        <li>
-          {/* <a href={withBase(item.href)}> */}
-          <a >
+      {items.map((item, i) => (
+        <li class={i >= visibleCount ? "news-extra" : undefined}>
+          <div class="news-item">
             <time class="news-date" datetime={item.date}>{item.date}</time>
             <span class="news-title">
               {item.tag && <span class="news-tag">【{item.tag}】</span>}
               {item.title}
             </span>
-          </a>
+          </div>
         </li>
       ))}
     </ul>
 
-    {showMore && <a class="news-more" href={withBase("/news")}>查看更多消息</a>}
+    {hasMore && (
+      <button class="news-more" type="button" aria-expanded="false">
+        查看更多消息
+      </button>
+    )}
   </div>
 </section>
+
+<script>
+  // Astro 會把這段打包成單一模組，不是每個元件實例各跑一次，
+  // 所以這裡要處理頁面上所有的消息區塊
+  document.querySelectorAll<HTMLButtonElement>(".news-more").forEach((btn) => {
+    const section = btn.closest<HTMLElement>(".news");
+    if (!section) return;
+
+    btn.addEventListener("click", () => {
+      const expanded = section.dataset.expanded === "true";
+      section.dataset.expanded = String(!expanded);
+      btn.setAttribute("aria-expanded", String(!expanded));
+      btn.textContent = expanded ? "查看更多消息" : "收合消息";
+    });
+  });
+</script>

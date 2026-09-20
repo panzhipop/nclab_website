@@ -31,6 +31,11 @@
   --brand-soft: #1d4f92;
   --brand-soft: light-dark(#1d4f92, #7fa4dc);
 
+  /* 標誌字樣的字首強調色 — Ubuntu 的 light aubergine。
+     深色模式要提亮，#77216F 明度太低，貼在深底上會整個沉下去 */
+  --brand-initial: #77216f;
+  --brand-initial: light-dark(#77216f, #FFFFFF);
+
   /* 強調淺藍：只用在 header 底線、nav 底線這類裝飾線條，深淺色共用 */
   --accent:    #b4dcff;
 
@@ -123,12 +128,20 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 4px solid var(--accent);
 }
 
+/* 第一排：標誌靠左、語言列靠右。
+   margin-right:auto 加在 .brand 上，剩餘空間全部吃掉，
+   後面的語言列就被推到最右，不需要另外加 justify-content */
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 24px;
+}
+
 .lang-bar {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 6px;
-  padding: 6px 24px 0;
 }
 
 .lang-bar a {
@@ -200,32 +213,57 @@ a { color: inherit; text-decoration: none; }
 
 .theme-toggle:hover { border-color: var(--brand-soft); }
 
+/* 第二排只有導覽列，置中即可 —— 標誌已經移到上一排，
+   不再需要先前那組 1fr auto 1fr 的三欄格線來抵銷標誌寬度 */
 .header-row {
   display: flex;
-  align-items: center;
-  gap: 40px;
-  min-height: var(--header-h);
-  padding-block: 8px;
+  justify-content: center;
+  padding: 0 24px 10px;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--brand-font);
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: .02em;
+  margin-right: auto;
   color: var(--brand);
   flex: none;
 }
 
 .brand svg,
-.brand img { width: 38px; height: 38px; flex: none; object-fit: contain; }
+.brand img { width: 52px; height: 52px; flex: none; object-fit: contain; }
+
+/* 中文在上、英文在下的兩行式標誌 */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+/* 中文行刻意用 --sans 而不是 --brand-font：
+   Nunito 沒有中文字，而且這裡必須是 700 —— Noto Sans TC 只載入
+   300/400/500/700，指定 800 會讓瀏覽器對中文做合成粗體，筆畫會糊掉 */
+.brand-org {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+/* 字級刻意與 .brand-org 相同，兩行看起來才是同一個整體 */
+.brand-name {
+  font-family: var(--brand-font);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.brand-initial { color: var(--brand-initial); }
 .brand .ring   { stroke: var(--brand); }
 .brand .stroke { stroke: var(--accent); }
 
-.nav { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+.nav { display: flex; align-items: center; gap: 4px; }
 
 .nav a {
   position: relative;
@@ -275,8 +313,8 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 280px;
-  padding: 64px 24px;
+  min-height: 132px;
+  padding: 28px 24px;
   text-align: center;
   color: #fff;
   overflow: hidden;
@@ -294,19 +332,11 @@ a { color: inherit; text-decoration: none; }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
   font-weight: 700;
   letter-spacing: .22em;
   text-indent: .22em;
   line-height: 1.25;
-}
-
-.hero p {
-  margin: 20px 0 0;
-  font-size: clamp(.9rem, 1.6vw, 1.05rem);
-  font-weight: 300;
-  letter-spacing: .12em;
-  color: rgba(255,255,255,.86);
 }
 
 /* ============================================================
@@ -337,16 +367,14 @@ a { color: inherit; text-decoration: none; }
 
 .news-list li + li { border-top: 1px solid var(--line); }
 
-.news-list a {
+/* 日期與標題兩欄。內頁路由已移除，所以這裡是 <div> 不是 <a>，
+   也沒有 hover 效果 —— 不該讓看起來能點但其實不能點 */
+.news-item {
   display: grid;
   grid-template-columns: 104px 1fr;
   gap: 22px;
   padding: 16px 12px;
-  border-radius: 4px;
-  transition: background .15s;
 }
-
-.news-list a:hover { background: var(--wash); }
 
 .news-date {
   color: var(--brand-soft);
@@ -358,6 +386,12 @@ a { color: inherit; text-decoration: none; }
 .news-title { font-size: 16px; }
 .news-tag { color: var(--brand); font-weight: 600; }
 
+/* 超出 limit 的項目預設收起，由按鈕切換 .news 的 data-expanded 顯示 */
+.news-extra { display: none; }
+.news[data-expanded="true"] .news-extra { display: list-item; }
+
+/* 這是 <button> 不是 <a>：字型不會自動繼承，背景也有瀏覽器預設值，
+   兩者都得明確覆蓋，否則會變成系統預設的灰底按鈕 */
 .news-more {
   display: block;
   width: fit-content;
@@ -365,8 +399,11 @@ a { color: inherit; text-decoration: none; }
   padding: 11px 30px;
   border: 1px solid var(--brand);
   border-radius: 3px;
+  background: none;
   color: var(--brand);
+  font-family: inherit;
   font-size: 15px;
+  cursor: pointer;
   transition: background .15s, color .15s;
 }
 
@@ -416,10 +453,36 @@ a { color: inherit; text-decoration: none; }
   .nav a { padding: 13px 24px; }
   .nav a::after { display: none; }
 
-  .header-row { position: relative; gap: 16px; }
-  .brand { font-size: 21px; }
+  /* 手機寬度塞不下「標誌 + 語言列 + 漢堡鈕」在同一排（實測 375px 下
+     三者合計超出約 70px），所以讓 .header-top 換行：語言列獨佔上面
+     一排靠右，標誌和漢堡鈕分居下面一排兩端。
+     用 order 調換視覺順序而不動 DOM，Tab 焦點與讀屏順序仍是標誌優先。 */
+  .header-top {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 6px 16px 10px;
+  }
+  .lang-bar   { order: 1; width: 100%; justify-content: flex-end; }
+  .brand      { order: 2; }
+  .nav-toggle { order: 3; }
 
-  .news-list a { grid-template-columns: 1fr; gap: 4px; }
+  /* 下拉選單改以 .site-header 為定位基準（它是 sticky，會建立包含
+     區塊），所以 top:100% 指的是整個 header 的下緣。
+     導覽列那排在手機是空的，把內距歸零免得撐出空白。 */
+  .header-row { padding: 0; }
+
+  .brand { gap: 10px; }
+  .brand svg,
+  .brand img { width: 38px; height: 38px; }
+
+  /* nowrap 確保各自只佔一行，加起來剛好兩行 */
+  .brand-org,
+  .brand-name { white-space: nowrap; }
+  .brand-org  { font-size: 11px; letter-spacing: .02em; }
+  .brand-name { font-size: 11px; }
+
+  /* 窄螢幕塞不下 104px 的日期欄，改成日期與標題上下排列 */
+  .news-item { grid-template-columns: 1fr; gap: 4px; }
   .news { padding: 48px 0 60px; }
 }
 

@@ -1,21 +1,18 @@
 {
+  "org": "國立成功大學",
   "name": "網路計算實驗室",
   "shortName": "Network Computing Lab",
-  "tagline": "侯廷偉教授 實驗室 ｜ nclab ｜ 國立成功大學工程科學系",
+  "tagline": "侯廷偉教授 實驗室 ｜ NCLAB ｜ 國立成功大學工程科學系",
   "nav": [
     { "label": "首頁",     "href": "/" },
-    { "label": "最新消息", "href": "/news" },
     { "label": "實驗室簡介", "href": "/about" },
     { "label": "指導教授", "href": "/professor" },
     { "label": "實驗室成員", "href": "/members" },
     { "label": "合作夥伴", "href": "/partners" },
     { "label": "研究成果", "href": "/research" },
+    { "label": "贊助我們", "href": "/sponsor" },
     { "label": "活動花絮", "href": "/gallery" }
   ],
-  "ticker": {
-    "text": "【招生訊息】歡迎對網路系統、分散式運算有興趣的同學來信洽詢碩士班與大學部專題",
-    "href": "/news"
-  },
   "contact": {
     "address": "台南市東區大學路 1 號 工程科學系館 41502",
     "email": "公務信箱 em63300@ncku.edu.tw",

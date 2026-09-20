@@ -3,27 +3,48 @@ import site from "../data/site.json";
 import ThemeToggle from "./ThemeToggle.astro";
 import { withBase } from "../lib/url";
 const { current = "/" } = Astro.props;
+
+// 標誌字樣的前兩個單字字首要上色（Network Computing Lab → N、C）。
+// 從 site.shortName 拆出來而不是寫死字串，改名時這裡不用動。
+const brandWords = site.shortName.split(" ");
+const accentCount = 2;
 ---
 
 <header class="site-header" id="siteHeader">
-  <div class="lang-bar">
-    <a href={withBase("/")} aria-current="true">中文版</a>
-    <!-- <a href="/en">English</a> -->
-    <a href="">English</a>
-    <ThemeToggle />
-  </div>
-
-  <div class="wrap header-row">
+  {/* 標誌與語言列同一排，所以兩者是兄弟元素而不是分屬上下兩個容器 */}
+  <div class="header-top">
     <a class="brand" href={withBase("/")}>
       <img src={withBase("/logo.png")} alt="" width="279" height="279" />
-      {site.shortName}
+      <span class="brand-text">
+        <span class="brand-org">{site.org} {site.name}</span>
+        <span class="brand-name">
+          {brandWords.map((word, i) => (
+            <Fragment>
+              {i > 0 && " "}
+              {i < accentCount
+                ? <span class="brand-initial">{word.charAt(0)}</span>
+                : word.charAt(0)}
+              {word.slice(1)}
+            </Fragment>
+          ))}
+        </span>
+      </span>
     </a>
+
+    <div class="lang-bar">
+      <a href={withBase("/")} aria-current="true">中文版</a>
+      <!-- <a href="/en">English</a> -->
+      <a href="">English</a>
+      <ThemeToggle />
+    </div>
 
     <button class="nav-toggle" type="button" aria-label="開啟選單"
             aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
     </button>
+  </div>
 
+  <div class="header-row">
     <nav class="nav" id="mainNav">
       {site.nav.map(item => (
         <a href={withBase(item.href)} aria-current={item.href === current ? "page" : undefined}>
