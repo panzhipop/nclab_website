@@ -1,0 +1,26 @@
+---
+import MemberCard from "./MemberCard.astro";
+
+// 分組的卡片列表。實驗室成員與畢業成員共用同一套版型，
+// 差別只在資料與分組標題（碩一／碩二／博士 vs 114 級／113 級…），
+// 所以標題直接取自資料，元件本身不預設任何分組名稱。
+const { groups = [] } = Astro.props;
+---
+
+<div class="page-body wrap">
+  {groups.map((group) => (
+    <section class="page-section">
+      <h2 class="page-section-title">{group.group}</h2>
+
+      <div class="member-grid">
+        {group.people.map((person) => (
+          <MemberCard
+            name={person.name}
+            photo={person.photo}
+            interests={person.interests}
+          />
+        ))}
+      </div>
+    </section>
+  ))}
+</div>

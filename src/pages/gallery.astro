@@ -1,10 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import NewsTicker from "../components/NewsTicker.astro";
 ---
 
 <BaseLayout title="活動花絮" current="/gallery">
-  <PageHero title="活動花絮" />
-  <!-- <NewsTicker /> -->
+  <PageHero title="活動花絮" mobileOnly />
+
+  <div class="page-body wrap">
+    <section class="page-section">
+      <h2 class="page-section-title">照片</h2>
+    </section>
+  </div>
 </BaseLayout>

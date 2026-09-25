@@ -128,8 +128,16 @@
 
 html { scroll-padding-top: calc(var(--header-h) + 12px); }
 
+/* 直向 flex + main 吃掉剩餘空間 = 內容不足時頁尾被推到視窗底部，
+   內容夠長時頁尾照常接在後面（不是 position: fixed，不會蓋住內容）。
+   dvh 會扣掉手機瀏覽器的網址列，避免頁尾被推到視窗外；
+   前一行 vh 是給不支援 dvh 的舊瀏覽器的 fallback。 */
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--sans);
   color: var(--text);
   background: var(--bg);
@@ -137,6 +145,8 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color .2s, color .2s;
 }
+
+main { flex: 1; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -360,6 +370,10 @@ a { color: inherit; text-decoration: none; }
   background: var(--hero-stars), var(--hero-bg);
 }
 
+/* 首頁以外的 hero：桌機隱藏，手機版在下方的媒體查詢裡放回來。
+   必須寫在 .hero 之後 —— 兩者specificity 相同，靠順序決勝。 */
+.hero-mobile-only { display: none; }
+
 .hero h1 {
   margin: 0;
   font-size: clamp(1.3rem, 2.8vw, 1.75rem);
@@ -390,34 +404,40 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    消息列表
    ============================================================ */
-.news { padding: 72px 0 88px; }
+.news { padding: 44px 0 52px; }
 
 .news-list {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  max-width: 900px;
+  max-width: 680px;
 }
 
-.news-list li + li { border-top: 1px solid var(--line); }
+/* 每一則都有下底線。原本寫 li + li 的 border-top，分隔線只存在於
+   「兩則之間」，所以只有一則時完全沒有線，最後一則也沒有收尾 */
+.news-list li { border-bottom: 1px solid var(--line); }
 
-/* 日期與標題兩欄。內頁路由已移除，所以這裡是 <div> 不是 <a>，
-   也沒有 hover 效果 —— 不該讓看起來能點但其實不能點 */
+/* 日期一欄、標題一欄，整列靠左。
+   1fr 讓標題欄成為位置固定的矩形，換行時每一行都從同一個左邊界
+   開始（齊頭）；auto 的日期欄配合 tabular-nums，各列的日期寬度
+   一致，會自然對齊成一直欄。
+   內頁路由已移除，所以這裡是 <div> 不是 <a>，也沒有 hover 效果
+   —— 不該讓看起來能點但其實不能點 */
 .news-item {
   display: grid;
-  grid-template-columns: 104px 1fr;
-  gap: 22px;
-  padding: 16px 12px;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 8px;
 }
 
 .news-date {
   color: var(--brand-soft);
-  font-size: 14px;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
-  padding-top: 2px;
 }
 
-.news-title { font-size: 16px; }
+.news-title { font-size: 15px; }
 .news-tag { color: var(--brand); font-weight: 600; }
 
 /* 超出 limit 的項目預設收起，由按鈕切換 .news 的 data-expanded 顯示 */
@@ -442,6 +462,114 @@ a { color: inherit; text-decoration: none; }
 }
 
 .news-more:hover { background: var(--brand); color: var(--surface); }
+
+/* ============================================================
+   內頁通用外框 —— 成員、研究領域等「分區標題＋內容」的頁面共用，
+   避免每新增一頁就複製一次同樣的標題樣式
+   ============================================================ */
+/* 只設上下。這個元素同時掛著 .wrap，用 padding 簡寫的話中間那個 0
+   會把 .wrap 的 padding-inline: 24px 一起清掉，內容就貼到螢幕邊緣 */
+/* 比 .wrap 的 1120px 再窄一些。內頁多半是條列或短段落，
+   行長超過 900px 左右就不好讀了；.wrap 的 margin-inline: auto
+   仍然生效，所以窄下來之後還是置中的 */
+.page-body {
+  max-width: 960px;
+  padding-block: 44px 64px;
+}
+
+.page-section + .page-section { margin-top: 44px; }
+
+.page-section-title {
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--nav-bg);
+  color: var(--brand);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   成員卡片
+   ============================================================ */
+/* auto-fill 讓每列能塞幾張就塞幾張，不必為不同人數寫死欄數。
+   min(320px, 100%) 是必要的 —— 只寫 minmax(320px, 1fr) 的話，
+   容器比 320px 還窄時（手機）軌道不會縮，整個格線會橫向溢出。 */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+}
+
+.member-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  /* 文字只有兩行、照片有 96px，用 start 的話文字會吊在上緣、
+     照片下半部空一塊。center 讓兩者的中線對齊 */
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.member-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--wash);
+}
+
+/* 還沒放照片時的佔位方塊，虛線邊框表示「待補」而非設計元素 */
+.member-photo--empty {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  color: var(--brand);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+/* 標籤與內容兩欄。baseline 讓 17px 的姓名和 14px 的「姓名」標籤
+   對齊文字基線，避免兩者因字級不同而產生高低差 */
+.member-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.member-meta dt {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.member-meta dd { margin: 0; }
+
+.member-name {
+  color: var(--brand);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   研究領域
+   ============================================================ */
+.research-list {
+  margin: 0;
+  padding-left: 1.3em;
+  font-size: 16px;
+}
+
+.research-list li { margin-bottom: 10px; }
+.research-list li:last-child { margin-bottom: 0; }
+
+/* ::marker 只吃少數屬性（color、font-*、content），
+   這裡用來讓項目符號跟標題同色，而不是預設的內文黑 */
+.research-list li::marker { color: var(--brand-soft); }
 
 /* ============================================================
    頁尾
@@ -524,9 +652,13 @@ a { color: inherit; text-decoration: none; }
   .brand-org  { font-size: 11px; letter-spacing: .02em; }
   .brand-name { font-size: 11px; }
 
-  /* 窄螢幕塞不下 104px 的日期欄，改成日期與標題上下排列 */
-  .news-item { grid-template-columns: 1fr; gap: 4px; }
-  .news { padding: 48px 0 60px; }
+  /* 內頁的 hero 在手機版放回來。用 grid 而不是 block，
+     才能沿用 .hero 的 place-items: center 讓標題置中 */
+  .hero-mobile-only { display: grid; }
+
+  /* 版型與桌機相同，只把間距收窄讓標題多拿一些寬度 */
+  .news-item { gap: 10px; padding: 12px 4px; }
+  .news { padding: 32px 0 40px; }
 
   /* 頁尾三塊改直向堆疊。橫向排列時 flex-wrap 會讓聯絡資訊和版權
      擠在同一列，.footer-contact 的 flex:1 又去搶剩餘空間，

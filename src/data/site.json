@@ -8,9 +8,9 @@
     { "label": "實驗室簡介", "href": "/about" },
     { "label": "指導教授", "href": "/professor" },
     { "label": "實驗室成員", "href": "/members" },
+    { "label": "畢業成員", "href": "/alumni" },
+    { "label": "研究領域", "href": "/research" },
     { "label": "合作夥伴", "href": "/partners" },
-    { "label": "研究成果", "href": "/research" },
-    { "label": "贊助我們", "href": "/sponsor" },
     { "label": "活動花絮", "href": "/gallery" }
   ],
   "contact": {

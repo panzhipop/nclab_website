@@ -1,10 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import NewsTicker from "../components/NewsTicker.astro";
+import areas from "../data/research.json";
 ---
 
-<BaseLayout title="研究成果" current="/research">
-  <PageHero title="研究成果" />
-  <!-- <NewsTicker /> -->
+<BaseLayout title="研究領域" current="/research">
+  <PageHero title="研究領域" mobileOnly />
+
+  <div class="page-body wrap">
+    {areas.map((area) => (
+      <section class="page-section">
+        <h2 class="page-section-title">【{area.code}】{area.title}</h2>
+
+        <ul class="research-list">
+          {area.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    ))}
+  </div>
 </BaseLayout>

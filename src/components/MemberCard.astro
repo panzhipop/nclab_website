@@ -1,0 +1,27 @@
+---
+import { withBase } from "../lib/url";
+
+const { name, photo = "", interests = [] } = Astro.props;
+---
+
+<article class="member-card">
+  {photo ? (
+    /* alt 留空是刻意的：姓名就在旁邊，讀屏軟體再念一次照片等於重複 */
+    <img class="member-photo" src={withBase(photo)} alt="" width="192" height="192" />
+  ) : (
+    /* 還沒有照片時用姓氏字元當佔位，比破圖圖示或空白框好辨認 */
+    <div class="member-photo member-photo--empty" aria-hidden="true">{name.slice(0, 1)}</div>
+  )}
+
+  <dl class="member-meta">
+    <dt>姓名</dt>
+    <dd class="member-name">{name}</dd>
+
+    {interests.length > 0 && (
+      <Fragment>
+        <dt>興趣</dt>
+        <dd>{interests.join("、")}</dd>
+      </Fragment>
+    )}
+  </dl>
+</article>

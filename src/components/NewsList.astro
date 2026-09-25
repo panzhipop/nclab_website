@@ -3,22 +3,26 @@ import allNews from "../data/news.json";
 
 const { limit, showMore = false } = Astro.props;
 
-const sorted = [...allNews].sort((a, b) => b.date.localeCompare(a.date));
+// 日期由小到大，最新的一則排在最下面。
+// 日期是 YYYY-MM-DD，字典序等同時間序，不需要轉成 Date 物件。
+const ascending = [...allNews].sort((a, b) => a.date.localeCompare(b.date));
 
-// 有「查看更多」時，全部消息都先渲染進 HTML，超出 visibleCount 的用 CSS
-// 藏起來，按鈕只負責把它們顯示出來。這樣展開是就地發生的，不會換頁，
-// 也就不會跳回頁首。代價是 HTML 會多帶幾則消息的內容，
-// 以目前的資料量（8 則純文字）可以忽略。
-const visibleCount = limit ?? sorted.length;
-const items = showMore ? sorted : sorted.slice(0, visibleCount);
-const hasMore = showMore && sorted.length > visibleCount;
+const visibleCount = limit ?? ascending.length;
+
+// 有 limit 時要留下「最新的 N 則」—— 現在最新的在尾端，所以取後段。
+const items = showMore ? ascending : ascending.slice(-visibleCount);
+
+// 有「查看更多」時，全部消息都先渲染進 HTML，先藏起來的是比較舊的那些，
+// 位置在列表上方。按鈕只負責把它們顯示出來，不換頁也不動捲軸。
+const hiddenCount = showMore ? Math.max(0, ascending.length - visibleCount) : 0;
+const hasMore = hiddenCount > 0;
 ---
 
 <section class="news" data-expanded="false">
   <div class="wrap">
     <ul class="news-list">
       {items.map((item, i) => (
-        <li class={i >= visibleCount ? "news-extra" : undefined}>
+        <li class={i < hiddenCount ? "news-extra" : undefined}>
           <div class="news-item">
             <time class="news-date" datetime={item.date}>{item.date}</time>
             <span class="news-title">

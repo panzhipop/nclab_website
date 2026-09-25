@@ -1,9 +1,12 @@
 ---
-const { title, image } = Astro.props;
+// mobileOnly：桌機隱藏、手機保留。首頁以外的內頁都傳這個。
+// 必須用 CSS 控制而不是在這裡判斷不渲染 —— Astro 產生的是靜態 HTML，
+// build 當下不知道瀏覽器寬度，所以兩種版型都得輸出。
+const { title, image, mobileOnly = false } = Astro.props;
 ---
 
 <section
-  class="hero"
+  class:list={["hero", { "hero-mobile-only": mobileOnly }]}
   style={image ? `background-image:
     linear-gradient(105deg, rgba(15,60,115,.94) 0%, rgba(15,60,115,.74) 100%),
     url('${image}'); background-size: cover; background-position: center;` : undefined}

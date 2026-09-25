@@ -2,10 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import MemberGroups from "../components/MemberGroups.astro";
-import groups from "../data/members.json";
+import groups from "../data/alumni.json";
 ---
 
-<BaseLayout title="實驗室成員" current="/members">
-  <PageHero title="實驗室成員" mobileOnly />
+<BaseLayout title="畢業成員" current="/alumni">
+  <PageHero title="畢業成員" mobileOnly />
   <MemberGroups groups={groups} />
 </BaseLayout>
