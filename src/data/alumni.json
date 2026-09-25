@@ -2,23 +2,13 @@
   {
     "group": "114 級",
     "people": [
-      { "name": "毛利小五郎", "photo": "", "interests": ["賽馬", "推理小說"] },
-      { "name": "妃英理", "photo": "", "interests": ["法律", "閱讀"] }
-    ]
-  },
-  {
-    "group": "113 級",
-    "people": [
-      { "name": "目暮十三", "photo": "", "interests": ["釣魚", "園藝"] },
-      { "name": "佐藤美和子", "photo": "", "interests": ["駕駛", "射擊"] },
-      { "name": "高木涉", "photo": "", "interests": ["攝影", "慢跑"] }
-    ]
-  },
-  {
-    "group": "112 級",
-    "people": [
-      { "name": "赤井秀一", "photo": "", "interests": ["射擊", "機車"] },
-      { "name": "安室透", "photo": "", "interests": ["咖啡", "衝浪"] }
+      { "name": "張辰瑋", "photo": "", "interests": [""] },
+      { "name": "洪維辰", "photo": "", "interests": [""] },
+      { "name": "藍鴻毅", "photo": "", "interests": [""] },
+      { "name": "黃晟瑋", "photo": "", "interests": [""] },
+      { "name": "李旻謙", "photo": "", "interests": [""] },
+      { "name": "黃啟軒", "photo": "", "interests": [""] },
+      { "name": "王星諭", "photo": "", "interests": [""] }
     ]
   }
 ]

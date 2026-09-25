@@ -2,24 +2,30 @@
   {
     "group": "碩一",
     "people": [
-      { "name": "江戶川柯南", "photo": "", "interests": ["推理", "足球"] },
-      { "name": "毛利蘭", "photo": "", "interests": ["空手道", "料理"] },
-      { "name": "鈴木園子", "photo": "", "interests": ["購物", "偵探小說"] }
+      { "name": "劉冠佑", "photo": "", "interests": [""] },
+      { "name": "吳國瑒", "photo": "", "interests": [""] },
+      { "name": "詹智翔", "photo": "", "interests": [""] },
+      { "name": "郭仲恩", "photo": "", "interests": [""] },
+      { "name": "陳昱伶", "photo": "", "interests": [""] },
+      { "name": "洪御桓", "photo": "", "interests": [""] }
     ]
   },
   {
     "group": "碩二",
     "people": [
-      { "name": "服部平次", "photo": "", "interests": ["劍道", "關西美食"] },
-      { "name": "遠山和葉", "photo": "", "interests": ["合氣道", "占卜"] },
-      { "name": "怪盜基德", "photo": "", "interests": ["魔術", "滑翔翼"] }
+      { "name": "葉宸佑", "photo": "", "interests": [""] },
+      { "name": "周宇謙", "photo": "", "interests": [""] },
+      { "name": "黃揖", "photo": "", "interests": [""] },
+      { "name": "江岱螢", "photo": "", "interests": [""] },
+      { "name": "黃柏睿", "photo": "", "interests": [""] },
+      { "name": "張祐程", "photo": "", "interests": [""] },
+      { "name": "謝育政", "photo": "", "interests": [""] }
     ]
   },
   {
     "group": "博士",
     "people": [
-      { "name": "阿笠博士", "photo": "", "interests": ["發明", "冷笑話"] },
-      { "name": "灰原哀", "photo": "", "interests": ["藥物化學", "閱讀"] }
+      { "name": "謝承翰", "photo": "", "interests": [""] }
     ]
   }
 ]
