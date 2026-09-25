@@ -184,6 +184,9 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 24px;
   padding: 10px 24px;
+  /* --wash 的淺色值就是 #f4f6f9。用 token 而不是寫死色碼，
+     深色模式才會跟著換成 #16233a，不會留一塊死白 */
+  background: var(--wash);
 }
 
 .lang-bar {
