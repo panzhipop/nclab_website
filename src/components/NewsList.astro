@@ -35,7 +35,7 @@ const hasMore = hiddenCount > 0;
     </ul>
 
     {hasMore && (
-      <button class="news-more" type="button" aria-expanded="false">
+      <button class="more-btn" type="button" data-news-more aria-expanded="false">
         查看更多消息
       </button>
     )}
@@ -45,7 +45,7 @@ const hasMore = hiddenCount > 0;
 <script>
   // Astro 會把這段打包成單一模組，不是每個元件實例各跑一次，
   // 所以這裡要處理頁面上所有的消息區塊
-  document.querySelectorAll<HTMLButtonElement>(".news-more").forEach((btn) => {
+  document.querySelectorAll<HTMLButtonElement>("[data-news-more]").forEach((btn) => {
     const section = btn.closest<HTMLElement>(".news");
     if (!section) return;
 

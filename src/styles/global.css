@@ -67,7 +67,10 @@
   --icon-sun:  1;
   --icon-moon: .38;
 
-  --header-h: 76px;
+  /* sticky header 的實際高度：第一排 10+52+10，加上導覽列那排 52。
+     錨點捲動（scroll-padding-top）和左側目錄的 sticky 位移都靠它，
+     改動 header 內距或 logo 尺寸時要一起更新 */
+  --header-h: 124px;
 
   /* 導覽列橫條與標語橫條共用的高度。兩者都靠 min-height 對齊，
      而不是各自調內距去湊 —— 改一個值兩條就同步 */
@@ -425,7 +428,7 @@ a { color: inherit; text-decoration: none; }
    —— 不該讓看起來能點但其實不能點 */
 .news-item {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: baseline;
   gap: 16px;
   padding: 12px 8px;
@@ -444,24 +447,6 @@ a { color: inherit; text-decoration: none; }
 .news-extra { display: none; }
 .news[data-expanded="true"] .news-extra { display: list-item; }
 
-/* 這是 <button> 不是 <a>：字型不會自動繼承，背景也有瀏覽器預設值，
-   兩者都得明確覆蓋，否則會變成系統預設的灰底按鈕 */
-.news-more {
-  display: block;
-  width: fit-content;
-  margin: 44px auto 0;
-  padding: 11px 30px;
-  border: 1px solid var(--brand);
-  border-radius: 3px;
-  background: none;
-  color: var(--brand);
-  font-family: inherit;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background .15s, color .15s;
-}
-
-.news-more:hover { background: var(--brand); color: var(--surface); }
 
 /* ============================================================
    內頁通用外框 —— 成員、研究領域等「分區標題＋內容」的頁面共用，
@@ -502,7 +487,7 @@ a { color: inherit; text-decoration: none; }
 
 .member-card {
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 96px minmax(0, 1fr);
   gap: 16px;
   /* 文字只有兩行、照片有 96px，用 start 的話文字會吊在上緣、
      照片下半部空一塊。center 讓兩者的中線對齊 */
@@ -535,7 +520,7 @@ a { color: inherit; text-decoration: none; }
    對齊文字基線，避免兩者因字級不同而產生高低差 */
 .member-meta {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: baseline;
   gap: 8px 12px;
   margin: 0;
@@ -600,6 +585,183 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   指導教授
+   ============================================================ */
+
+/* ---------- 左側目錄（HackMD 式） ---------- */
+/* minmax(0, 1fr) 不能寫成 1fr。1fr 等同 minmax(auto, 1fr)，而 auto 的
+   最小值是 min-content —— 內容欄有超長的英文論文標題、目錄欄有一排
+   nowrap 的膠囊，軌道會被撐到超過視窗寬，整頁就能左右拖動，
+   而 header 和 hero 只有視窗寬度，看起來就像「只剩一半」。 */
+.prof-layout {
+  max-width: var(--measure);
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* 同理：目錄欄本身也要能縮，手機版的橫向捲動才會生效 */
+.toc { min-width: 0; }
+
+/* 扣掉 sticky header 的高度，否則捲動時目錄上緣會被 header 蓋住 */
+.toc {
+  position: sticky;
+  top: calc(var(--header-h) + 16px);
+}
+
+.toc-title {
+  margin: 0 0 10px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .1em;
+}
+
+.toc nav { display: grid; }
+
+/* 16px 是刻意明寫的，和內文、.page-subsection-title 同級 */
+.toc a {
+  padding: 7px 12px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 16px;
+  transition: color .15s, border-color .15s;
+}
+
+.toc a:hover { border-left-color: var(--brand-soft); color: var(--brand-soft); }
+
+.toc a.is-active {
+  border-left-color: var(--brand);
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.page-subsection-title {
+  margin: 28px 0 4px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ---------- 個人資料 ---------- */
+.prof-card {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.prof-photo {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  background: var(--wash);
+}
+
+.prof-name {
+  margin: 0;
+  color: var(--brand);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.prof-name span { margin-left: 10px; font-size: 17px; font-weight: 500; }
+.prof-org { margin: 4px 0 20px; color: var(--muted); }
+
+.prof-facts {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 10px 20px;
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.prof-facts dt { color: var(--muted); font-size: 14px; }
+.prof-facts dd { margin: 0; }
+.prof-mail { color: var(--brand-soft); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- 經歷時間軸 ---------- */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  border-left: 2px solid var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding-bottom: 20px;
+}
+
+/* -29px 的來源：li 的左緣在 ol 的 border(2) + padding(22) = 24px 處，
+   圓點要騎在框線中心（1px），圓點半徑 6 → 1-6-24 = -29 */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -29px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline-item.is-now::before { border-color: var(--brand); background: var(--brand); }
+
+.timeline-when {
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-item.is-now .timeline-when { color: var(--brand); font-weight: 500; }
+.timeline-what { font-weight: 500; }
+
+/* ---------- 通用條列（論文、研究計畫） ---------- */
+.bullet-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+/* overflow-wrap 是必要的：期刊出處常有超長的英文詞，
+   不允許斷行的話會把整欄撐寬、造成頁面橫向捲動 */
+.bullet-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.bullet-list li::marker { color: var(--brand-soft); }
+
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 40px; }
+
+/* ---------- 展開／收合按鈕（消息列表與研究計畫共用） ---------- */
+/* 這是 <button> 不是 <a>：字型不會自動繼承，背景也有瀏覽器預設值，
+   兩者都得明確覆蓋，否則會變成系統預設的灰底按鈕 */
+.more-btn {
+  display: block;
+  width: fit-content;
+  margin: 24px auto 0;
+  padding: 10px 28px;
+  border: 1px solid var(--brand);
+  border-radius: 999px;
+  background: none;
+  color: var(--brand);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.more-btn:hover { background: var(--brand); color: var(--surface); }
+
+/* ============================================================
    手機
    ============================================================ */
 @media (max-width: 900px) {
@@ -658,6 +820,23 @@ a { color: inherit; text-decoration: none; }
 
   /* 版型與桌機相同，只把間距收窄讓標題多拿一些寬度 */
   .news-item { gap: 10px; padding: 12px 4px; }
+
+  /* ---------- 指導教授 ---------- */
+  /* 窄螢幕放不下側欄，目錄直接不顯示。
+     章節標題本身已經夠明顯，手機上捲動找章節比點目錄還快，
+     而且橫排的七個連結會佔掉 hero 下方一整列。 */
+  .prof-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .toc { display: none; }
+
+  .prof-card { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .prof-photo { width: 150px; }
+  .prof-name { font-size: 22px; }
+
+  /* 標籤與內容改成上下排，窄螢幕下 max-content 的標籤欄會把內容擠扁 */
+  .prof-facts { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .prof-facts dt { margin-top: 12px; }
+
+  .two-col { grid-template-columns: minmax(0, 1fr); }
   .news { padding: 32px 0 40px; }
 
   /* 頁尾三塊改直向堆疊。橫向排列時 flex-wrap 會讓聯絡資訊和版權

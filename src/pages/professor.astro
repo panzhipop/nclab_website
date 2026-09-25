@@ -1,10 +1,200 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import NewsTicker from "../components/NewsTicker.astro";
+import { withBase } from "../lib/url";
+import prof from "../data/professor.json";
+
+// 經歷依起始日期由新到舊
+const experience = [...prof.experience].sort((a, b) => b.start.localeCompare(a.start));
+
+// 全站條列一律依年份由新到舊。年份缺漏（0 或 null）的排最後。
+const byYearDesc = (a: any, b: any) => (b.y || 0) - (a.y || 0);
+
+const journals = [...prof.journals].sort(byYearDesc);
+const conferences = [...prof.conferences].sort(byYearDesc);
+const awards = [...prof.awards].sort(byYearDesc);
+const guidance = [...prof.guidance].sort(byYearDesc);
+const books = [...prof.books].sort(byYearDesc);
+
+// 條目的副標。原始資料很多欄位是空的或 0，filter(Boolean) 會把它們
+// 濾掉；全部都缺時回傳空字串，樣板就不輸出那個 span。
+const metaOf = (...parts: (string | number | null | undefined)[]) =>
+  parts.filter(Boolean).join("，");
+
+// 一則論文串成一行。收錄標記與年份收在括號裡，跟出處資訊區隔開，
+// 否則接在後面會和卷期頁數混成一串看不出斷點。
+function pubLine(p: any): string {
+  const marks = [...(p.tags ?? []), p.y || null].filter(Boolean);
+  return metaOf(p.t, p.v, p.d, p.n, marks.length ? `(${marks.join(", ")})` : null);
+}
+
+const sections = [
+  { id: "profile", label: "個人資料" },
+  { id: "experience", label: "經歷" },
+  { id: "publications", label: "學術著作" },
+  { id: "projects", label: "研究計畫" },
+  { id: "books", label: "專書與專利" },
+  { id: "awards", label: "榮譽" },
+  { id: "guidance", label: "指導成果" },
+];
 ---
 
 <BaseLayout title="指導教授" current="/professor">
   <PageHero title="指導教授" mobileOnly />
-  <!-- <NewsTicker /> -->
+
+  <div class="page-body wrap prof-layout">
+    <aside class="toc">
+      <p class="toc-title">目錄</p>
+      <nav aria-label="本頁章節">
+        {sections.map((s) => (
+          <a href={`#${s.id}`} data-toc-link={s.id}>{s.label}</a>
+        ))}
+      </nav>
+    </aside>
+
+    <div class="prof-main">
+    {/* ---------- 個人資料 ---------- */}
+    <section class="page-section" id="profile">
+      <h2 class="page-section-title">個人資料</h2>
+
+      <div class="prof-card">
+        <img
+          class="prof-photo"
+          src={withBase(prof.photo)}
+          alt={`${prof.name} ${prof.title}`}
+          width="700"
+          height="1050"
+        />
+
+        <div>
+          <p class="prof-name">{prof.name} <span>{prof.title}</span></p>
+          <p class="prof-org">{prof.org}</p>
+
+          <dl class="prof-facts">
+            {prof.facts.map((f) => (
+              <Fragment>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </Fragment>
+            ))}
+            <dt>信箱</dt>
+            <dd><a class="prof-mail" href={`mailto:${prof.email}`}>{prof.email}</a></dd>
+            <dt>專長</dt>
+            <dd>{prof.expertise.join("、")}</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- 經歷 ---------- */}
+    <section class="page-section" id="experience">
+      <h2 class="page-section-title">經歷</h2>
+
+      <ol class="timeline">
+        {experience.map((e) => (
+          <li class:list={["timeline-item", { "is-now": e.end === "迄今" }]}>
+            <span class="timeline-when">
+              {e.start.replace(/-/g, ".")}
+              {e.end ? ` – ${e.end === "迄今" ? "迄今" : e.end.replace(/-/g, ".")}` : " 起"}
+            </span>
+            <span class="timeline-what">{e.what}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    {/* ---------- 學術著作 ---------- */}
+    <section class="page-section" id="publications">
+      <h2 class="page-section-title">學術著作</h2>
+
+      <h3 class="page-subsection-title">期刊論文（{journals.length} 篇）</h3>
+      <ul class="bullet-list">
+        {journals.map((item) => <li>{pubLine(item)}</li>)}
+      </ul>
+
+      <h3 class="page-subsection-title">研討會論文（{conferences.length} 篇）</h3>
+      <ul class="bullet-list">
+        {conferences.map((item) => <li>{pubLine(item)}</li>)}
+      </ul>
+    </section>
+
+    {/* ---------- 研究計畫 ---------- */}
+    <section class="page-section" id="projects">
+      <h2 class="page-section-title">研究計畫</h2>
+
+      <h3 class="page-subsection-title">國科會計畫（{prof.nscProjects.length} 項）</h3>
+      <ul class="bullet-list">
+        {prof.nscProjects.map((x) => <li>{metaOf(x.t, x.c, x.p)}</li>)}
+      </ul>
+
+      <h3 class="page-subsection-title">其他計畫（{prof.otherProjects.length} 項）</h3>
+      <ul class="bullet-list">
+        {prof.otherProjects.map((x) => <li>{metaOf(x.t, x.p)}</li>)}
+      </ul>
+    </section>
+
+    {/* ---------- 專書與專利 ---------- */}
+    <section class="page-section" id="books">
+      <h2 class="page-section-title">專書與專利</h2>
+
+      <div class="two-col">
+        <div>
+          <h3 class="page-subsection-title">專書</h3>
+          <ul class="bullet-list">
+            {books.map((b) => <li>{metaOf(b.t, b.y)}</li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="page-subsection-title">專利</h3>
+          <ul class="bullet-list">
+            {prof.patents.map((b) => <li>{b.t}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- 榮譽 ---------- */}
+    <section class="page-section" id="awards">
+      <h2 class="page-section-title">榮譽</h2>
+
+      <ul class="bullet-list">
+        {awards.map((a) => <li>{metaOf(a.t, a.y)}</li>)}
+      </ul>
+    </section>
+
+    {/* ---------- 指導成果 ---------- */}
+    <section class="page-section" id="guidance">
+      <h2 class="page-section-title">指導成果</h2>
+
+      <ul class="bullet-list">
+        {guidance.map((g) => <li>{metaOf(g.t, g.k, g.y)}</li>)}
+      </ul>
+    </section>
+    </div>
+  </div>
 </BaseLayout>
+
+<script>
+  // 捲到哪一節，左側目錄就亮哪一條（HackMD 的做法）。
+  // rootMargin 把觸發帶壓縮到視窗中段，避免兩個相鄰區塊同時算命中，
+  // 造成目錄在捲動時來回閃爍。
+  const links = document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]");
+  const sections = document.querySelectorAll<HTMLElement>(".prof-main .page-section");
+
+  if (links.length && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.tocLink === entry.target.id);
+          });
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

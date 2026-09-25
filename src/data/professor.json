@@ -1,0 +1,1342 @@
+{
+  "name": "侯廷偉",
+  "title": "教授",
+  "org": "國立成功大學工程科學系",
+  "photo": "/teacher.jpg",
+  "facts": [
+    {
+      "label": "學歷",
+      "value": "國立成功大學電機系博士"
+    },
+    {
+      "label": "實驗室",
+      "value": "網路計算實驗室"
+    },
+    {
+      "label": "分機",
+      "value": "63334"
+    }
+  ],
+  "email": "houtw@ncku.edu.tw",
+  "expertise": [
+    "智慧計算儲存裝置",
+    "機器人系統",
+    "感測器",
+    "情緒感知",
+    "資訊安全",
+    "醫療資訊系統"
+  ],
+  "experience": [
+    {
+      "start": "2015-08-01",
+      "end": "2018-07-31",
+      "what": "工程科學系 系主任"
+    },
+    {
+      "start": "2010-08-01",
+      "end": "迄今",
+      "what": "國立成功大學工程科學系教授"
+    },
+    {
+      "start": "2007-08-01",
+      "end": "2014-07-71",
+      "what": "國立成功大學醫學院附設醫院資訊室主任"
+    },
+    {
+      "start": "2006",
+      "end": "2006",
+      "what": "中央健保局資訊處健保IC卡標案審查委員"
+    },
+    {
+      "start": "2004-08-01",
+      "end": "2009-05-01",
+      "what": "國立成功大學研究總中心電腦與自動化中心主任"
+    },
+    {
+      "start": "2001-09-01",
+      "end": "2002-02-01",
+      "what": "中央健保局資訊處審查委員"
+    },
+    {
+      "start": "1997-01-01",
+      "end": "1997-06-01",
+      "what": "資策會技研處顧問"
+    },
+    {
+      "start": "1993-10-01",
+      "end": "1994-07-01",
+      "what": "伊利諾大學電腦系統研發中心訪問學者"
+    },
+    {
+      "start": "1990-08-01",
+      "end": "2010-07-01",
+      "what": "國立成功大學工程科學系副教授"
+    }
+  ],
+  "journals": [
+    {
+      "t": "整合式車輛晶片卡之研究",
+      "v": "車輛工程月刊",
+      "d": "Vol. 155, pp. 39~48",
+      "y": 2007,
+      "m": 1,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "無線射頻識別票據可行性研究",
+      "v": "Internaltional Journal of Advanced Information Technologies (IJAIT)",
+      "d": "Vol. 1, No. 1, pp. 90-99",
+      "y": 2007,
+      "m": 10,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Design of wormhole router for distributed memory multiprocessors",
+      "v": "IEE Electronic Letters",
+      "d": "Vol. 27, No. 5, pp. 2385-2387",
+      "y": 1991,
+      "m": 12,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Adaptive and Fault-tolerant Routing Algorithm for High Performance 2D Torus interconnection Network",
+      "v": "Computer & Mathematics with Applications",
+      "d": "Vol. 23, No. 1, pp. 3-15",
+      "y": 1992,
+      "m": 0,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Evaluation of sequential-in-random -out memory device",
+      "v": "IEE Electronic Letters",
+      "d": "Vol. 31, No. 8, pp. 620-621",
+      "y": 1995,
+      "m": 4,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "An Efficient Encoding Tree for Location-Aware Multicast Routing Protocol in Wireless Ad Hoc Networks",
+      "v": "Journal of Internet Technology",
+      "d": "Vol. 6-1, No. 1",
+      "y": 2005,
+      "m": 0,
+      "tags": [
+        "EI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Lightweight Cyclic Referece Counting Algorithm",
+      "v": "Lecture Notes in Computer Science (LNCS)",
+      "d": "Vol. 3947",
+      "y": 2006,
+      "m": 5,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Instruction-coated Translation: An Approach to Restructure Directly Threaded Interpreters with Low Cohesion",
+      "v": "to appear in SIGPLAN Notices",
+      "d": "Vol. 41(8)",
+      "y": 2006,
+      "m": 8,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Lightweight Cyclic Reference Counting Algorithm",
+      "v": "Lecture Notes in Computer Science (LNCS)",
+      "d": "Vol. 3947, pp. 346-359",
+      "y": 2006,
+      "m": 5,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Instruction-coated translation: an approach to restructure directly threaded interpreters with low cohesion",
+      "v": "ACM SIGPLAN Notices",
+      "d": "Vol. 41-8, pp. 29-33",
+      "y": 2009,
+      "m": 8,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Partition Network Model for ad hoc Networks in Overlay Environments",
+      "v": "Wirel. Commun. Mob. Comput",
+      "d": "pp. 6:711-725",
+      "y": 2006,
+      "m": 0,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Three Control Flow Obfuscation methods for Java Software",
+      "v": "IEE Proceedings Software",
+      "d": "Vol. 153-2, pp. 80-86",
+      "y": 2006,
+      "m": 4,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Three Control Flow Obfuscation methods on Java Software",
+      "v": "IEE Proc. Software",
+      "d": "Vol. 153-2, pp. 80-86",
+      "y": 2006,
+      "m": 4,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Reliable cross-layer multicast with local backtracking for improving transmission control protocol performance in ad hoc networks",
+      "v": "IET COMMUNICATIONS",
+      "d": "Vol. 1-5, pp. 887-892",
+      "y": 2007,
+      "m": 10,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Using Healthcare IC Cards to manage the drug doses of chronic disease patients",
+      "v": "Computers in Biology and Medicine",
+      "d": "Vol. 37-2, pp. 206-213",
+      "y": 2007,
+      "m": 2,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Tamper-proofing basis path by using oblivious hashing on Java",
+      "v": "ACM SIGPLAN Notices",
+      "d": "Vol. 42-2",
+      "y": 2007,
+      "m": 2,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A simple and efficient algorithm for cycle collection",
+      "v": "ACM SIGPLAN Notices",
+      "d": "Vol. 42-3",
+      "y": 2007,
+      "m": 3,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Adaptive arrival rate dependent traffic balancing with redundancy",
+      "v": "Computer Communications",
+      "d": "Vol. 30-6, pp. 1220-1228",
+      "y": 2007,
+      "m": 3,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "An anomaly in an interpreter using GCC source-code-level register allocation",
+      "v": "ACM SIGPLAN Notices",
+      "d": "Vol. 42-4",
+      "y": 2007,
+      "m": 4,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Design and prototype of a mechanism for active on-line emerging/notifiable infectious diseases control, tracking and surveillance, based on a national healthcare card system",
+      "v": "Computer Methods and Programs in Biomedicine",
+      "d": "Vol. 86-2, pp. 161-170",
+      "y": 2007,
+      "m": 5,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Security Module for Car Appliances",
+      "v": "International Journal of Mechanical Systems Science and Engineering (IJMSSE) (ISSN 1307-7473)",
+      "d": "Vol. 1-3, pp. 155-160",
+      "y": 2007,
+      "m": 0,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Using Healthcare IC cards to Manage the Drug Doses of Chronic Disease Patients",
+      "v": "Computers in Biology and Medicine",
+      "d": "Vol. 37-2, pp. 206-213",
+      "y": 2007,
+      "m": 2,
+      "tags": [
+        "SCI"
+      ],
+      "n": "和趙健明教授共同指導"
+    },
+    {
+      "t": "Pocket EZPIN device for healthcare IC cards to enhance the security and convenience of senior citizens",
+      "v": "Computers in Biology and Medicine",
+      "d": "Vol. 38-4, pp. 411-415",
+      "y": 2008,
+      "m": 4,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A wrapper and broker model for collaboration between a set-top box and home service gateway",
+      "v": "IEEE Transactions on Consumer Electronics",
+      "d": "Vol. 54-3, pp. 1123 - 11",
+      "y": 2008,
+      "m": 8,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Concurrent error detection and correction in dual basis multiplier over GF(2(m))",
+      "v": "IET CIRCUITS DEVICES & SYSTEMS",
+      "d": "Vol. 3-1, pp. 22-40",
+      "y": 2009,
+      "m": 2,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "An efficient directional interpolated algorithm for video deinterlacing",
+      "v": "IEICE ELECTRONICS EXPRESS",
+      "d": "Vol. 6-5, pp. 211-217",
+      "y": 2009,
+      "m": 3,
+      "tags": [],
+      "n": ""
+    },
+    {
+      "t": "Adaptive two-way uniform partition for multicast routing problem with separate paths in ad hoc networks",
+      "v": "Expert Systems with Applications",
+      "d": "Vol. 36-1, pp. 959-969",
+      "y": 2009,
+      "m": 1,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A controllable and accountable state-oriented Card-Aided Firewall",
+      "v": "Computer Standards & Interfaces",
+      "d": "Vol. 31-1, pp. 66-76",
+      "y": 2009,
+      "m": 1,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Adaptive and Intelligent Path Discovery On-demand for Wireless Networks using Service-composition",
+      "v": "Expert Systems With Applications",
+      "d": "Vol. 36-4, pp. 8667-8675",
+      "y": 2009,
+      "m": 5,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Knowledge-based Inference Multicast Protocol using Adaptive Fuzzy Petri Nets",
+      "v": "Expert Systems With Applications",
+      "d": "Vol. 36-4, pp. 8115-8123",
+      "y": 2009,
+      "m": 5,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Concurrent Error Detection and Correction in Gaussian Normal Basis Multiplier over GF(2m)",
+      "v": "IEEE Transactions on Computers",
+      "d": "Vol. 58-6, pp. 851-857",
+      "y": 2009,
+      "m": 6,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Graph-based Approach for Automatic Service Activation and Deactivation on the OSGi Platform",
+      "v": "IEEE Transactions on Consumer Electronics",
+      "d": "Vol. 55-3, pp. 1271-1279",
+      "y": 2009,
+      "m": 8,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "Classification and Evaluation of Middleware Collaboration Architectures for Converging MHP and OSGi in a Smart Home",
+      "v": "Journal of Information Science and Engineering",
+      "d": "Vol. 25-5, pp. 1337-1356",
+      "y": 2009,
+      "m": 9,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A Service-Layer Diagnostic Approach for the OSGi Framework",
+      "v": "IEEE Transactions on Consumer Electronics",
+      "d": "Vol. 55-4, pp. 1973-1981",
+      "y": 2009,
+      "m": 11,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A simple single-switch single-stage AC/DC converter with harmonic current correction",
+      "v": "IEICE Electronics Express",
+      "d": "Vol. 6-24, pp. 1757-1763",
+      "y": 2009,
+      "m": 12,
+      "tags": [
+        "SCI"
+      ],
+      "n": "和趙健明教授共同指導"
+    },
+    {
+      "t": "Applying data mining to explore the risk factors of parenting stress",
+      "v": "Expert Systems with Applications",
+      "d": "Vol. 37-1, pp. 598-601",
+      "y": 2010,
+      "m": 1,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    },
+    {
+      "t": "A novel discrete dimmable electronic ballast",
+      "v": "IEICE Electronics Express",
+      "d": "Vol. 7-6, pp. 403-409",
+      "y": 2010,
+      "m": 3,
+      "tags": [
+        "SCI"
+      ],
+      "n": "和趙健明教授共同指導"
+    },
+    {
+      "t": "A hybrid public key infrastructure solution (HPKI) for HIPAA privacy/security regulations",
+      "v": "Computer Standards & Interfaces",
+      "d": "Vol. 32-5-6, pp. 274-280",
+      "y": 2010,
+      "m": 10,
+      "tags": [
+        "SCI"
+      ],
+      "n": ""
+    }
+  ],
+  "conferences": [
+    {
+      "t": "A Virtual Machine Monitor for Multi-micro Systems",
+      "v": "Proceeding of National Computer Symposium 1985, Taiwan, Kaohsiung",
+      "d": "pp. 340-348",
+      "y": 1985
+    },
+    {
+      "t": "VMM86: A Virtual Machine Monitor on 80386 for Virtualizing 8086 based Systems",
+      "v": "Proceedings of National Computer Symposium 1986, Taiwan, Taipei",
+      "d": "pp. 660-668",
+      "y": 1986
+    },
+    {
+      "t": "支援 MACRO C 之併行處理環境",
+      "v": "Proceedings of National Computer Sumposium 1989, Taiwan, Taipei",
+      "d": "pp. 650-656",
+      "y": 1989
+    },
+    {
+      "t": "Incomplete Low-dimensional Torus",
+      "v": "Proceedings of National Computer Symposium 1989, Taiwan, Taipei",
+      "d": "pp. 650-656",
+      "y": 1989
+    },
+    {
+      "t": "An Adaptive Deadlock-free Router for Trous Interconnect Multicomputers",
+      "v": "Proceeding of National Computer Symposium 1989, Taiwan, Taipei",
+      "d": "pp. 714-722",
+      "y": 1989
+    },
+    {
+      "t": "Design and Experiment of Routing Schemes for 2D Torus Message Passing Network",
+      "v": "Proceedings of the First Workshop on Parallel Processing, Taiwan, Hsin Chu",
+      "d": "",
+      "y": 1990
+    },
+    {
+      "t": "ORDERS 物件導向通訊伺服器之設計與實現",
+      "v": "Proceedings of 1995 Workshop on Distributed System Technologies & Applications, Taiwan",
+      "d": "pp. 31-40",
+      "y": 1995
+    },
+    {
+      "t": "一個支援設計及時作業系統的物件導向微核心",
+      "v": "First Workshop on Real-time and Media Systems, Taiwan, Taipei",
+      "d": "pp. 379-385",
+      "y": 1995
+    },
+    {
+      "t": "在Parton Kernel上即時排程器的設計與實現(The Design and Implementation of a Real-Time Scheduler for Parton Kernel)",
+      "v": "First Workshop on Real-time and Media Systems, Taiwan, ROC., Taipei",
+      "d": "",
+      "y": 1995
+    },
+    {
+      "t": "ORDERS共享空間與虛擬記憶體管理系統",
+      "v": "1995 Workshop on High Performance Multiprocessor Systems, Taiwan",
+      "d": "pp. 37-43",
+      "y": 1995
+    },
+    {
+      "t": "O2MK : An Object-Oriented Microkernel",
+      "v": "The Sixth Workshop on Object-Oriented Technologies and Application, Taiwan, Taichung",
+      "d": "pp. 129-137",
+      "y": 1995
+    },
+    {
+      "t": "分散式物件導向執行平台之建構",
+      "v": "Proceedings of 7th Workshop on Object-Oriented Technologies and Applications, Taiwan, Tainan",
+      "d": "pp. 232-241",
+      "y": 1996
+    },
+    {
+      "t": "物件導向通訊系統-ORDERS之經驗",
+      "v": "Proceedings of 7th Workshop on Object-Oriented Technologies and Applications, Taiwan, Tainan",
+      "d": "pp. 242-251",
+      "y": 1996
+    },
+    {
+      "t": "A Multicast Wormhole Router for Ring-Clustered PCs",
+      "v": "Proceedings of 1997 VLSI/CAD Symposium, Taiwan, Taichun",
+      "d": "",
+      "y": 1997
+    },
+    {
+      "t": "分散式異質物件之整合執行環境的研究",
+      "v": "1997分散式系統技術及應用研討會論文集",
+      "d": "pp. 622~638",
+      "y": 1997
+    },
+    {
+      "t": "具繼承特性之物件群組導向模式",
+      "v": "1997分散式系統技術及應用研討會論文集",
+      "d": "pp. 639~651",
+      "y": 1997
+    },
+    {
+      "t": "分散式平行計算程式之通訊軌跡收集與應用",
+      "v": "1998分散式系統技術及應用研討會",
+      "d": "pp. 376~384",
+      "y": 1998
+    },
+    {
+      "t": "應用於嵌入式JAVA虛擬機器之虛擬平台的規格與實作",
+      "v": "1998分散式系統技術及應用研討會",
+      "d": "pp. 1~9",
+      "y": 1998
+    },
+    {
+      "t": "支援Java平行計算之PC-Cluster原型",
+      "v": "1999分散式系統技術及應用研討會論文集（Proceedings of 1999 Workshop on Distributed System Technologies and Applications）, Taiwan, National Cheng Kung University, Tainan",
+      "d": "pp. 603-608",
+      "y": 1999
+    },
+    {
+      "t": "JCA: Java Class轉譯環境",
+      "v": "1999分散式系統技術及應用研討會論文集（Proceedings of 1999 Workshop on Distributed System Technologies and Applications）, Taiwan, National Cheng Kung University, Tainan",
+      "d": "pp. 753-762",
+      "y": 1999
+    },
+    {
+      "t": "Quick_link: Java Virtual Machine中Quick Instruction替代方案",
+      "v": "第十屆物件導向技術及應用研討會論文集(Proceedings of the Tenth Workshop on Object-Oriented Technology and Applications), Taiwan, R.O.C., National Chiao-Tung University, Hisnchu",
+      "d": "pp. 84-93",
+      "y": 1999
+    },
+    {
+      "t": "Transforming Bytecodes of Java Loops for a Distributed Shared Memory System",
+      "v": "Proceedings of the sixth workshop on Compiler Techniques for High Performance Computing, Taiwan, National Sun Yat-Sun University, Kaoshiung",
+      "d": "pp. 63-71",
+      "y": 2000
+    },
+    {
+      "t": "移植Java Virtual Machine的研究與經驗",
+      "v": "2000年網際網路與分散式系統研討會(Proceedings of 2000 Workshop on Internet & Distributed Systems, WIND2000), Taiwan, R.O.C, National Cheng Kung University, Tainan",
+      "d": "pp. 75-82",
+      "y": 2000
+    },
+    {
+      "t": "A Component Manager for a Composable Object-Oriented Kernel",
+      "v": "第十一屆物件導向技術及應用研討會論文集, 東海大學",
+      "d": "pp. C-30~C-37",
+      "y": 2000
+    },
+    {
+      "t": "以物件導向技術開發web-based的資訊管理系統的經驗",
+      "v": "第十一屆物件導向技術及應用研討會論文集, 東海大學",
+      "d": "pp. A-31~A-35",
+      "y": 2000
+    },
+    {
+      "t": "中國鋼鐵公司的電子商務發展",
+      "v": "Proceedings of Workshop on the 21st Centry Digital Life and Internet Technologies, Taiwan, National Cheng Kung University, Tainan, Session 1D（電子版）",
+      "d": "",
+      "y": 2001
+    },
+    {
+      "t": "The Design and Implementation of a Java-based Card Reader For IC Cards",
+      "v": "Proceedings of Workshop on the 21st Centry Digital Life and Internet Technologies, Taiwan, R.O.C., National Cheng Kung University, Tainan, Session 4D（電子版）",
+      "d": "",
+      "y": 2001
+    },
+    {
+      "t": "Design and Develop a Web-based Raw-Material Management Information System for the Nuts Industry",
+      "v": "Proceedings of the 12th Workshop on Object-Oriented Technology and Applications, Taiwan, National Cheng Kung University, Tainan",
+      "d": "pp. 265-269",
+      "y": 2001
+    },
+    {
+      "t": "The Design and Implementation of a Java-based Card Reader For IC Cards",
+      "v": "Proceedings of Workshop on the 21st Centry Digital Life and Internet Technologies, National Cheng Kung University, Tainan, Taiwan R.O.C., Session 4D（電子版）",
+      "d": "",
+      "y": 2001
+    },
+    {
+      "t": "Design and Implementation of the Java Abstract Window Toolkit for the Embedded Java Runtime Environment",
+      "v": "Proceedings of the 12th Workshop on Object-Oriented Technology and Applicatins, Taiwan, Natinal Cheng Kung University, Tainan",
+      "d": "pp. 225-230",
+      "y": 2001
+    },
+    {
+      "t": "Design and Implementation of a Java Card Execution Environment",
+      "v": "2002 Symposium on Digital Life and Internet Technologies, Taiwan",
+      "d": "",
+      "y": 2002
+    },
+    {
+      "t": "An XML Parser for Embedded Applications",
+      "v": "2002 Symposium on Digital Life and Internet Technologies, Taiwan",
+      "d": "",
+      "y": 2002
+    },
+    {
+      "t": "智慧卡作業系統的驗證",
+      "v": "Proceedings of the 13th Workshop on Object-Oriented Technology and Applications, Taiwan, 臺中健康暨管理學院",
+      "d": "pp. 67-72",
+      "y": 2002
+    },
+    {
+      "t": "Java Card 微處理器的設計與實作",
+      "v": "Proceedings of the 13th Workshop on Object-Oriented Technology and Applications, Taiwan, 臺中健康暨管理學院",
+      "d": "pp. 495-499",
+      "y": 2002
+    },
+    {
+      "t": "設計和應用供應鏈管理在鋼鐵業和鏍帽業",
+      "v": "2003年資訊技術應用與發展研討會",
+      "d": "pp. 525-528",
+      "y": 2003
+    },
+    {
+      "t": "Tamper-proofing of Java Programs by Oblivious Hashing",
+      "v": "The Eleventh Workshop on Compiler Techniques for High-Performance Computing",
+      "d": "",
+      "y": 2005
+    },
+    {
+      "t": "Software Watermarking Toward Anti-additive Attack for Java",
+      "v": "第15屆資訊安全會議",
+      "d": "pp. 28",
+      "y": 2005
+    },
+    {
+      "t": "An Active Emerging Infectious Disease On-Line Surveillance Mechanism Based on NHI IC cards",
+      "v": "MIST2005, 醫療資訊會議, 2005 最佳論文獎",
+      "d": "",
+      "y": 2005
+    },
+    {
+      "t": "The Improvement of VoIP QoS over MPLS Network",
+      "v": "Proceeding of Mobile Computing Workshop 2006, Taiwan, Taichung",
+      "d": "pp. 617-622",
+      "y": 2006
+    },
+    {
+      "t": "從著作權法分析使用BT傳輸軟體之刑事責任及電腦鑑識程序初探",
+      "v": "數位生活科技研討會 (Credit 2006)",
+      "d": "",
+      "y": 2006
+    },
+    {
+      "t": "Integration and Combination of MHP and OSGi",
+      "v": "數位生活科技研討會 (Credit 2006)",
+      "d": "",
+      "y": 2006
+    },
+    {
+      "t": "探討無失真音效壓縮格式與實作網路串流媒體付費機制",
+      "v": "2006年國際電腦音樂與音訊技術研討會, 台灣, 台南國立台灣師範大學",
+      "d": "pp. 46-53",
+      "y": 2006
+    },
+    {
+      "t": "Weaknesses and Improvements of Secure Communication between Set-top Box and Smart Card in DTV Broadcasting",
+      "v": "第16屆全國資訊安全會議",
+      "d": "",
+      "y": 2006
+    },
+    {
+      "t": "MHP Middleware與OSGi車載服務系統之設計與實現",
+      "v": "第十七屆物件導向研討會, 長庚大學, 桃園",
+      "d": "",
+      "y": 2006
+    },
+    {
+      "t": "MHP Middleware與 OSGi整合家用多媒體裝置以UPnPAV設計與實作",
+      "v": "數位生活科技研討會(Credit 2007), 台灣, 成功大學, 台南",
+      "d": "",
+      "y": 2007
+    },
+    {
+      "t": "使用智慧型手機控制OSGi數位家電環境之設計",
+      "v": "前瞻優質生活環境計畫-聯合成果發表會, 台灣大學",
+      "d": "",
+      "y": 2009
+    },
+    {
+      "t": "System Architectures of Distributed Shared Memory Systems: Research and Design",
+      "v": "Proc. of 1992 International Computer Symposium, Taiwan, Taichung",
+      "d": "pp. 158-165",
+      "y": 1992
+    },
+    {
+      "t": "Solving Location Problem of a Mobile Host by an Agent Group",
+      "v": "PIMRC'96 proceedings volume 2, Taiwan, Taipei",
+      "d": "pp. 708-712",
+      "y": 1996
+    },
+    {
+      "t": "Operating System and JIT Support for a Java Virtual Machine",
+      "v": "Proceedings of the Conference of Knowledge Economy and Information Technology, China, Hanchou",
+      "d": "",
+      "y": 1998
+    },
+    {
+      "t": "Design, and Implementation of a Java Execution Environment",
+      "v": "Proc. Of International Conference on Parallel and Distributed Systems, (ICPADS’98), Taiwan, Tainan",
+      "d": "pp. 686~692",
+      "y": 1999
+    },
+    {
+      "t": "Just Another Java Virtual Machine",
+      "v": "In Proceedings of 14th Conference on Information Networking (ICOIN-14), Taiwan, R.O.C., National Tsing Hua University, Hisnchu",
+      "d": "pp. 5A-2.1-5A-2.7",
+      "y": 2000
+    },
+    {
+      "t": "COOK: a Composable Object-Oriented Kernel",
+      "v": "Proceedings of World Multiconference on Systemics, Cybernetics, and Informatics, (SCI2000), volume II, Information Systems Development, U.S.A, Orlando, Florida",
+      "d": "pp. 395-400",
+      "y": 2007
+    },
+    {
+      "t": "The Pilot Taiwan Health IC Card Project: The Penghu(Pescadores) Experiment",
+      "v": "Proceedings of World Multiconference on Systemics, Cybernetics, and Informatics, (SCI2000), volume X, Concepts and Applications of Systemics, Cybernetics and Informatics, U.S.A., Orlando, Florida",
+      "d": "pp. 308-312",
+      "y": 2007
+    },
+    {
+      "t": "Implementing FISC IC Card Specification and Developing Health Care Application Using Java Card",
+      "v": "In Conference of the Multimedia Software Engineering, Taipei",
+      "d": "pp. 184-192",
+      "y": 2000
+    },
+    {
+      "t": "The Outlines And Prospects of Pilot Taiwan Health IC Card Project -- The Penghu (Pescadores) Experiment",
+      "v": "Proceedings of the International Conference on Mathematics and Engineering Techniques in Medicine and Biological Sciences, USA, Monte Carlo Resort, Las Vegas, Nevada",
+      "d": "pp. 215-221",
+      "y": 2001
+    },
+    {
+      "t": "Distributed and Parallel Execution of Java programs On a DSM System",
+      "v": "Proceedings of International Symposium on Cluster Computing and the Grid, Australia, South Brisbane",
+      "d": "pp. 555-559",
+      "y": 2001
+    },
+    {
+      "t": "Changing Data Type Method of Data Obfuscation on Java Software",
+      "v": "International Computer Symposium, Taiwan, TAIPEI",
+      "d": "pp. 5-6",
+      "y": 2004
+    },
+    {
+      "t": "Three Methods of Control Flow Obfuscation on Java Software",
+      "v": "International Computer Symposium, Taiwan, TAIPEI",
+      "d": "pp. 4-9",
+      "y": 2004
+    },
+    {
+      "t": "An AV object oriented encryption algorithm for MPEG-4 streams",
+      "v": "In Conference of the Multimedia and Expo, Taiwan, Taipei",
+      "d": "pp. 971-974",
+      "y": 2004
+    },
+    {
+      "t": "A Web-based Raw-Material Management Information System for the Steel Nuts Industry",
+      "v": "2nd International Workshop on Supply Chain Management & Information Systems, Hong Kong",
+      "d": "pp. 81-86",
+      "y": 2004
+    },
+    {
+      "t": "A Steel Nuts Inventory MIS using Web-based Technologies",
+      "v": "Web Technologies, Applications, and Services",
+      "d": "pp. 177-181",
+      "y": 2005
+    },
+    {
+      "t": "Two Control Computation Transformation Methods for Obfuscating Java Soft Software",
+      "v": "Web Technologies, Applications, and Services",
+      "d": "pp. 48-52",
+      "y": 2005
+    },
+    {
+      "t": "Ting-Wei Hou and Jiun-Tze Lai",
+      "v": "Proc. of the 20th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC 2005), Vol. 2, Korea, The Shilla Hotel, Jeju",
+      "d": "",
+      "y": 2005
+    },
+    {
+      "t": "DES and RSA Cryptosystem-based Remote User Authentication Scheme Using Smart Cards",
+      "v": "Proc. of the 20th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC 2005), Vol. 2, Korea, The Shilla Hotel, Jeju.",
+      "d": "pp. 645-646",
+      "y": 2007
+    },
+    {
+      "t": "A Modified User Authentication Scheme Using Hash Functions",
+      "v": "Proc. of the 20th International Technical Conference on Circuits/Systems, Computers and Communications (ITC-CSCC 2005)Vol. 2, Korea, The Shilla Hotel, Jeju",
+      "d": "pp. 643-644",
+      "y": 2005
+    },
+    {
+      "t": "A Quick XML Parser for Extracting Signatures of Secure Web Services",
+      "v": "Tn Conference of the Computer and Information Technology",
+      "d": "pp. 1093-1098",
+      "y": 2005
+    },
+    {
+      "t": "Maintaining Coverage by Progressive Crystal-Lattice Permutation in Mobile Wireless Sensor Networks",
+      "v": "2006 International Conference on Systems and Networks Communications",
+      "d": "pp. 42-43",
+      "y": 2006
+    },
+    {
+      "t": "An Efficient Secure Communication between Set-top Box and Smart Card in DTV Broadcasting",
+      "v": "ACM Symposium on InformAtion, Computer and Communications Security(ASIACCS'06)",
+      "d": "pp. 360-360",
+      "y": 2006
+    },
+    {
+      "t": "An Improved Vector Quantizer Design Method: the Codebook Reorganization Algorithm",
+      "v": "ISBN: 978-90-78677-01-7, Proceedings of Advances in Intelligent Systems Research (JCIS-2006)",
+      "d": "",
+      "y": 2006
+    },
+    {
+      "t": "A Lightweight Cyclic Reference Counting Algorithm",
+      "v": "Volume 3947, Lecture Notes in Computer Science (LNCS), Taiwan, Taichung",
+      "d": "pp. 346-359",
+      "y": 2006
+    },
+    {
+      "t": "Pluggable RFID components and a Lightweight RFID System based on OSGi",
+      "v": "Consumer Electronics, ICCE 2007",
+      "d": "pp. 1-2",
+      "y": 2007
+    },
+    {
+      "t": "A Collaboration Proxy for Converging UPnP and Jini Devices Based on OSGi",
+      "v": "4th IEEE Consumer Communications and Networking Conference",
+      "d": "pp. 916-919",
+      "y": 2007
+    },
+    {
+      "t": "State-oriented based smart card internet access framework",
+      "v": "TENCON 2007 - 2007 IEEE Region 10 Conference",
+      "d": "pp. 1-4",
+      "y": 2007
+    },
+    {
+      "t": "Advanced OSGi Security Layer. Advanced Information Networking and Applications Workshops",
+      "v": "AINAW '07. 21st International Conference on Volume 2",
+      "d": "pp. 518-523",
+      "y": 2007
+    },
+    {
+      "t": "Analysis and simulation for a novel single-switch single-stage AC/DC converter",
+      "v": "IEEE Region 10 Conference, TENCON 2007",
+      "d": "pp. 1-4",
+      "y": 2007
+    },
+    {
+      "t": "Based on cryptosystem secure communication between set-top box and smart card in DTV broadcasting",
+      "v": "IEEE Region 10 Conference, TENCON 2007",
+      "d": "pp. 1-5",
+      "y": 2007
+    },
+    {
+      "t": "A Cross-layered Diagnostician in OSGi Platform for Home Network",
+      "v": "Proc. Of the 2007 IFIP International Conference on Embedded and Ubiquitous Computing (EUC 2007), Taiwan, Taipei",
+      "d": "",
+      "y": 2007
+    },
+    {
+      "t": "Resource-aware service deployment for open service gateway in home network",
+      "v": "IEEE Region 10 Conference, TENCON 2007",
+      "d": "pp. 1-4",
+      "y": 2007
+    },
+    {
+      "t": "A Security Module for Car Appliances",
+      "v": "Proceedings of World Academy of Science, ENGINEERING AND TECHNOLOGY VOLUME 26 DECEMBER 2007 ISSN 1307-6884",
+      "d": "",
+      "y": 2007
+    },
+    {
+      "t": "Hierarchical Key Management of Scalable Video Coding",
+      "v": "Proc. 2007 Third International Conference on Intelligent Information Hiding and Multimedia Signal Processing",
+      "d": "pp. 399-402",
+      "y": 2007
+    },
+    {
+      "t": "Efficient Deinterlacing Algorithm using Directional Interpolation",
+      "v": "Proc. Of the 14th International Display Workshops (IDW 07), Japan, Sapporo Convention Center, Sapporo",
+      "d": "pp. 1451-1454",
+      "y": 2007
+    },
+    {
+      "t": "Personalized iDTV Program in Multimedia Home Platform",
+      "v": "22nd International Conference on Advanced Information Networking and Applications - Workshops, (AINAW 2008)",
+      "d": "pp. 473-476",
+      "y": 2008
+    },
+    {
+      "t": "Improvement of SCTP Performance during Handshake Process",
+      "v": "22nd International Conference on Advanced Information Networking and Applications - Workshops, (AINAW 2008)",
+      "d": "pp. 445-450",
+      "y": 2008
+    },
+    {
+      "t": "Design of an In-Vehicle Anti-Theft Component",
+      "v": "IEEE International Conference on Intelligent Systems Design and Applications",
+      "d": "pp. 566-569",
+      "y": null
+    },
+    {
+      "t": "A Try Before You Buy Approach for Networked Digital Home Appliances and Services",
+      "v": "IEEE International Conference on Consumer Electronics, ICCE 2009.",
+      "d": "",
+      "y": 2009
+    },
+    {
+      "t": "A Portable Feather-Weight Java-based Graphic Library for Embedded Systems on Java Processor",
+      "v": "The Fifth International Conference on Intelligent Information Hiding and Multimedia Signal Processing, Japan, Kyoto",
+      "d": "pp. 998-1001",
+      "y": 2009
+    },
+    {
+      "t": "A Single-Trace Cycle Collection for Reference Counting Systems",
+      "v": "The 10th International Symposium on Pervasive Systems, Algorithms and Networks, Taiwan, Kaoshiung",
+      "d": "pp. 40-45",
+      "y": 2009
+    },
+    {
+      "t": "Design of an Electronic Hospital Bedside-Card System Using RFID and DVB-MHP Platform",
+      "v": "The 10th International Symposium on Pervasive Systems, Algorithms and Networks, Taiwan, R.O.C., Kaoshiung",
+      "d": "",
+      "y": 2009
+    }
+  ],
+  "nscProjects": [
+    {
+      "t": "使用Java的中介軟體的快速啟動、可復原機制與平台弱點的研究",
+      "c": "NSC98-2221-E-006-103",
+      "p": "2009–2010",
+      "y": 2009
+    },
+    {
+      "t": "車用消費性電子設備防盜模組",
+      "c": "NSC97-2218-E-006-286",
+      "p": "2008–2009",
+      "y": 2008
+    },
+    {
+      "t": "嵌入式多核心平台開放系統與應用軟體開發",
+      "c": "NSC3197-2218-E-006-015",
+      "p": "2008–2009",
+      "y": 2008
+    },
+    {
+      "t": "嵌入式多核心處理器系統軟體開發",
+      "c": "NSC96-2218-E-006-285",
+      "p": "2007–2008",
+      "y": 2007
+    },
+    {
+      "t": "智慧型全域學習與管理系統之設計與實作-使用智慧ID之無所不在的e-learning服務環境之研究",
+      "c": "NSC95-2221-E-006-231 -MY3",
+      "p": "2006–2009",
+      "y": 2006
+    },
+    {
+      "t": "使用Java Card建置資訊系統電子憑証環境之可行性研究",
+      "c": "NSC94-2623-7-006-006",
+      "p": "2005–2006",
+      "y": 2005
+    },
+    {
+      "t": "Java 軟體防篡改技術",
+      "c": "NSC94-2213-E006-078",
+      "p": "2005–2006",
+      "y": 2005
+    },
+    {
+      "t": "Java反邊譯混淆器方法之設計與實作",
+      "c": "NSC93-2213-E-006-105",
+      "p": "2004–2005",
+      "y": 2004
+    },
+    {
+      "t": "參考計數垃圾收集器之設計與實做",
+      "c": "NSC92-2213-E-006-045",
+      "p": "2003–2004",
+      "y": 2003
+    },
+    {
+      "t": "逼近100%傳輸率的輸入佇列交換器的研究",
+      "c": "",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "具延展性分散式共用記憶體系統之研究(3/3)- 子計畫四:建於分散式共用記憶體結構的平行JAVA虛擬機器",
+      "c": "",
+      "p": "",
+      "y": 0
+    }
+  ],
+  "otherProjects": [
+    {
+      "t": "97年資通訊人才培育先導型計畫-課程發展計畫",
+      "p": "2008",
+      "y": 2008
+    },
+    {
+      "t": "96年度資通訊人才培育先導型計畫「數位家庭平台標準與架構」",
+      "p": "2007–2008",
+      "y": 2007
+    },
+    {
+      "t": "SVC FGS在PAC DSP上的實作",
+      "p": "2007",
+      "y": 2007
+    },
+    {
+      "t": "手持式裝置用OSGi服務間的相依性技術先期研究",
+      "p": "2007",
+      "y": 2007
+    },
+    {
+      "t": "車輛金鑰應用技術之研究",
+      "p": "2007",
+      "y": 2007
+    },
+    {
+      "t": "整合式車輛晶片卡之應用模組研究",
+      "p": "2006",
+      "y": 2006
+    },
+    {
+      "t": "多媒體家用平台與通用隨插即用影音平台之整合應用",
+      "p": "2006",
+      "y": 2006
+    },
+    {
+      "t": "e-Service 平台上之資源監控與管理",
+      "p": "2006",
+      "y": 2006
+    },
+    {
+      "t": "嵌入式軟體課程推廣計畫",
+      "p": "2006",
+      "y": 2006
+    },
+    {
+      "t": "Multimedia Home Platform 中介軟體設計建議",
+      "p": "2005",
+      "y": 2005
+    },
+    {
+      "t": "嵌入式軟體課程推廣計畫",
+      "p": "2005",
+      "y": 2005
+    },
+    {
+      "t": "先進無線數位家庭通訊與儲存技術計畫",
+      "p": "2005",
+      "y": 2005
+    },
+    {
+      "t": "健保IC卡之毀損原因及降低毀損率方案之可行性研究",
+      "p": "2005",
+      "y": 2005
+    },
+    {
+      "t": "開放式服務平台(OSGi)與多媒體家用平台(MHP)整合之研究",
+      "p": "2005",
+      "y": 2005
+    },
+    {
+      "t": "93年大專校院資訊人才培育計畫",
+      "p": "2004",
+      "y": 2004
+    },
+    {
+      "t": "紅外線小額付款機制之研究",
+      "p": "2004",
+      "y": 2004
+    },
+    {
+      "t": "整合健保IC卡PIN CODE及Database filter之隱私保護機制之研究",
+      "p": "2003",
+      "y": 2003
+    },
+    {
+      "t": "嵌入式Java VM",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "中央健康保險局澎湖地區健保IC卡第三期實驗計畫",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "上網確認卡",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "嵌入式Java Class Lib最佳化移植",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "中央健康保險局澎湖地區健保IC卡第四期實驗計畫",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "XML parser 與browser之研究",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "高效能switch之佇列研究",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "中央健康保險局澎湖地區健保IC卡第六期實驗計畫",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "中央健康保險局澎湖地區健保IC卡第五期實驗計畫",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "Java Card Security 之研究",
+      "p": "",
+      "y": 0
+    },
+    {
+      "t": "群集計算之高速連接網路之研究",
+      "p": "",
+      "y": 0
+    }
+  ],
+  "books": [
+    {
+      "t": "嵌入式系統設計：以 ARM 處理器基礎之 SOC 平台",
+      "y": 2006
+    },
+    {
+      "t": "軟體工程：物件導向程式設計與 UML 系統分析實作",
+      "y": 2004
+    }
+  ],
+  "patents": [
+    {
+      "t": "以條碼定址的播放裝置"
+    },
+    {
+      "t": "以條碼定址的播音方法"
+    }
+  ],
+  "awards": [
+    {
+      "t": "成功大學98學年度全校特優導師",
+      "y": 2010
+    },
+    {
+      "t": "98學年度工學院優良導師",
+      "y": 2009
+    },
+    {
+      "t": "98學年度全校教學優良教師",
+      "y": 2009
+    },
+    {
+      "t": "98年指導學生參加中華電信『2009電信奧斯卡』資通訊技術應用組第一名",
+      "y": 2009
+    },
+    {
+      "t": "97年工程科學系教學優良教師",
+      "y": 2008
+    },
+    {
+      "t": "97年指導學生參加第九屆台灣工業銀行創業大賽獲第三名",
+      "y": 2008
+    },
+    {
+      "t": "97年指導學生參加中華電信『2008電信加值應用大賽』獲資通訊技術應用組冠軍",
+      "y": 2008
+    },
+    {
+      "t": "95年工學院教學特優教師",
+      "y": 2006
+    },
+    {
+      "t": "95年參與教育部『通訊科技人才培育先導型計畫』編撰教科書、經評選為優良教科書",
+      "y": 2006
+    },
+    {
+      "t": "指導學生(張聖安、黃啟智、洪翊軒、張書源)參加IOSESC2006-Automotive PC(International Open Source Embedded Software Competition)國際開放原始程式嵌入式軟體競賽通過初賽(目前在決賽中)",
+      "y": 2006
+    },
+    {
+      "t": "95年獲國科會指導大專生參與專題研究計畫獲研究創作獎",
+      "y": 2006
+    },
+    {
+      "t": "94年工程科學系教學優良教師",
+      "y": 2005
+    },
+    {
+      "t": "94年國防科技學術合作研究計畫成果優良獎",
+      "y": 2005
+    },
+    {
+      "t": "指導學生(王怡婷、黃啟智、洪翊軒、張聖安)參加94年Tensilica 2005年Xtensa可配置式處理器設計大賽全國第三名",
+      "y": 2005
+    },
+    {
+      "t": "94年指導學生黃志文參加2005國際醫學資訊研討會(MIST2005)榮獲最佳論文獎",
+      "y": 2005
+    },
+    {
+      "t": "94年指導王怡婷、楊佳翰、張聖安、黃啟智、洪翊軒所共同設計 \"Java加速器\" 參加Tensilica 2005年 Xtensa 可配置設計大賽\"設計比賽全國第三名",
+      "y": 2005
+    },
+    {
+      "t": "93年工程科學系教學優良教師",
+      "y": 2004
+    },
+    {
+      "t": "87年工程科學系教學優良教師",
+      "y": 1998
+    },
+    {
+      "t": "86年工程科學系教學優良教師",
+      "y": 1997
+    },
+    {
+      "t": "83年工程科學系教學優良教師",
+      "y": 1994
+    }
+  ],
+  "guidance": [
+    {
+      "t": "指導博士班孫文良及碩士班林正益、詹凱程、劉川榮、杜晉瑋，榮獲2020第25屆大專校院資訊應用服務創新競賽資訊應用組第二名",
+      "k": "學術研討會",
+      "y": 2020
+    },
+    {
+      "t": "指導同學榮獲成大主辦2019年第二屆全國電動車創新設計與實作競賽，靜態設計報告第一名",
+      "k": "作品發表會",
+      "y": 2019
+    },
+    {
+      "t": "指導參加東海大學「第一屆全國電動車創新設計與實作競賽」，路賽競賽獲得佳作、工作報告書評選榮獲第一名",
+      "k": "作品發表會",
+      "y": 2018
+    },
+    {
+      "t": "指導學生林峪台，榮獲104年度大學生研究計畫研究創作獎",
+      "k": "作品發表會",
+      "y": 2015
+    }
+  ]
+}
