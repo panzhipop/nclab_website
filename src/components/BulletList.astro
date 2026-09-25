@@ -1,0 +1,40 @@
+---
+// 條列 + 「顯示更多／收起」。作法和 NewsList 相同：
+// 全部項目都在 build 時輸出成 HTML，超出 limit 的先用 CSS 藏起來，
+// 按鈕只切換一個 data 屬性。這樣展開是就地發生的，不換頁、不動捲軸。
+const { items = [], limit = 5 } = Astro.props;
+
+const hasMore = items.length > limit;
+---
+
+<div class="bullet-block" data-expanded="false">
+  <ul class="bullet-list">
+    {items.map((text: string, i: number) => (
+      <li class={i >= limit ? "bullet-extra" : undefined}>{text}</li>
+    ))}
+  </ul>
+
+  {hasMore && (
+    <button class="more-btn" type="button" data-bullet-more aria-expanded="false">
+      顯示更多（共 {items.length} 筆）
+    </button>
+  )}
+</div>
+
+<script>
+  // Astro 把這段打包成單一模組，不是每個元件實例各跑一次，
+  // 所以要一次處理頁面上所有的區塊
+  document.querySelectorAll<HTMLButtonElement>("[data-bullet-more]").forEach((btn) => {
+    const block = btn.closest<HTMLElement>(".bullet-block");
+    if (!block) return;
+
+    const total = block.querySelectorAll("li").length;
+
+    btn.addEventListener("click", () => {
+      const expanded = block.dataset.expanded === "true";
+      block.dataset.expanded = String(!expanded);
+      btn.setAttribute("aria-expanded", String(!expanded));
+      btn.textContent = expanded ? `顯示更多（共 ${total} 筆）` : "收起";
+    });
+  });
+</script>

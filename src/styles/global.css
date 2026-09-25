@@ -610,11 +610,12 @@ a { color: inherit; text-decoration: none; }
   top: calc(var(--header-h) + 16px);
 }
 
+/* 和下方的連結同級（16px）。原本的 letter-spacing 一併拿掉 ——
+   那是小字標籤為了好讀才加的，放到 16px 會顯得鬆散 */
 .toc-title {
   margin: 0 0 10px 12px;
   color: var(--muted);
-  font-size: 12px;
-  letter-spacing: .1em;
+  font-size: 16px;
 }
 
 .toc nav { display: grid; }
@@ -711,15 +712,12 @@ a { color: inherit; text-decoration: none; }
   background: var(--bg);
 }
 
-.timeline-item.is-now::before { border-color: var(--brand); background: var(--brand); }
-
 .timeline-when {
   color: var(--muted);
   font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
-.timeline-item.is-now .timeline-when { color: var(--brand); font-weight: 500; }
 .timeline-what { font-weight: 500; }
 
 /* ---------- 通用條列（論文、研究計畫） ---------- */
@@ -738,6 +736,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .bullet-list li::marker { color: var(--brand-soft); }
+
+/* 超出 limit 的項目預設收起，由按鈕切換 .bullet-block 的 data-expanded */
+.bullet-extra { display: none; }
+.bullet-block[data-expanded="true"] .bullet-extra { display: list-item; }
 
 .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 40px; }
 
