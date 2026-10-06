@@ -189,26 +189,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--wash);
 }
 
+/* 右側工具列，目前只放深淺切換鈕 */
 .lang-bar {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.lang-bar a {
-  font-size: 12px;
-  line-height: 1;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--wash);
-  color: var(--muted);
-  border: 1px solid var(--line);
-}
-
-.lang-bar a[aria-current="true"] {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: var(--surface);
 }
 
 /* ------------------------------------------------------------

@@ -11,7 +11,7 @@ const accentCount = 2;
 ---
 
 <header class="site-header" id="siteHeader">
-  {/* 標誌與語言列同一排，所以兩者是兄弟元素而不是分屬上下兩個容器 */}
+  {/* 標誌與右側工具列（目前只有深淺切換）同一排，所以兩者是兄弟元素 */}
   <div class="header-top">
     <a class="brand" href={withBase("/")}>
       <img src={withBase("/logo.png")} alt="" width="279" height="279" />
@@ -32,9 +32,6 @@ const accentCount = 2;
     </a>
 
     <div class="lang-bar">
-      <a href={withBase("/")} aria-current="true">中文版</a>
-      <!-- <a href="/en">English</a> -->
-      <a href="">English</a>
       <ThemeToggle />
     </div>
 
