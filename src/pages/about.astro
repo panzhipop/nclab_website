@@ -2,9 +2,133 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import NewsTicker from "../components/NewsTicker.astro";
+import { withBase } from "../lib/url";
+
+// 影片檔放 public/videos/，封面圖同名 .jpg（從影片第 1 秒抓）：
+//   ffmpeg -y -ss 1 -i public/videos/xxx.mp4 -frames:v 1 -q:v 4 public/videos/xxx.jpg
+// 單檔 100 MB 以下；超過的先壓：
+//   ffmpeg -i 原檔 -vf scale=-2:720 -c:v libx264 -crf 26 -preset slow -movflags +faststart public/videos/xxx.mp4
+//
+// text 裡每一段是一個 <p>。括號開頭的是佔位稿，記得換掉。
+const groups = [
+  {
+    code: "乙",
+    title: "資訊工程與應用",
+    demos: [
+      {
+        title: "基於 LLVM OpenMP 異質卸載框架",
+        video: "daniel-essay",
+        text: [
+          "本實驗建構三層式異質運算儲存平台：以 Acer 筆電為 Host，透過重構後的 LLVM OpenMP Runtime 將任務非同步卸載至 Nuvoton MA35D1 控制器（MPU），再由 MPU 以 TCP Socket 二次卸載至多顆 Milk-V Duo 256M NPU。影片呈現多顆 Milk-V 同步啟動，載入 CVIMODEL 模型後執行 YOLOv8n INT8 物件偵測，處理 COCO 2017 共 5,000 張影像。藉由裝置端近資料讀圖與獨立裝置鎖設計，消除約 350 秒的主機端傳輸開銷，於 16 顆 NPU 雙控制器配置下達到 35.73 FPS，驗證多 MPU、多 NPU 架構之平行調度與擴展能力。"
+        ],
+      },
+    ],
+  },
+  {
+    code: "己",
+    title: "系統整合暨智慧機器人",
+    demos: [
+      {
+        title: "機械夾爪實驗",
+        video: "clip",
+        text: [
+          "本實驗以 Fanuc LR Mate 200iD 六軸機械手臂搭配機器手，完成懸空杜邦線接頭的夾取與插入。系統由 ROS 2 與行為樹主控架構負責整體任務調度與錯誤恢復；眼在手上的 ZED Mini 雙目視覺系統，透過 YOLOv8／OBB 與 ResNet-18 二階段管線，即時估計接頭的 3D 位置、旋轉與下垂角度，引導手臂完成夾取；夾取後，光學標記式視覺型觸覺感測器切換標記／透明模式，量測接頭在手指上的位置、偏轉角與正向力，再由路徑規劃據此修正姿態，最終完成插入。"
+        ],
+      },
+      {
+        title: "機械手實驗",
+        video: "hand",
+        text: [
+          "本實驗與何明字副教授實驗室合作，將 Fanuc LR Mate 200iD 六軸機械手臂末端的夾爪替換為其所開發的機械手，並於拇指上整合本實驗室的觸覺感測器，完成懸空杜邦線接頭的夾取與插入。系統由 ROS 2 與行為樹主控架構負責整體任務調度與錯誤恢復；眼在手上的 ZED Mini 雙目視覺系統，透過 YOLOv8／OBB 與 ResNet-18 二階段管線，即時估計接頭的 3D 位置、旋轉與下垂角度，引導手臂完成夾取；夾取後，拇指上的光學標記式視覺型觸覺感測器切換標記／透明模式，量測接頭在手指上的位置、偏轉角與正向力，再由路徑規劃據此修正姿態，最終完成插入。"
+        ],
+      },
+      {
+        title: "鳳凰人形機器人",
+        video: "pheonix",
+        text: [
+          "鳳凰人形機器人為輪型底盤、上半身20個自由度。它以御宅族為目標使用者，頭部採「機娘」風格，具備注視、牽手跟隨、眨眼與觸覺互動（歪頭、握手）四種功能。"
+        ],
+      },
+    ],
+  },
+];
 ---
 
 <BaseLayout title="實驗室簡介" current="/about">
   <PageHero title="實驗室簡介" mobileOnly />
   <!-- <NewsTicker /> -->
+
+  <div class="page-body wrap">
+    {/* 改用 YouTube 的話，把 <video> 換成這個。要用 embed 網址，不是 watch 網址；
+        影片設「不公開」就不會被搜到，但知道連結的人都能看。
+        <iframe class="page-video"
+                src="https://www.youtube-nocookie.com/embed/VIDEO_ID"
+                title="機械夾爪實驗"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+        機械夾爪實驗的 VIDEO_ID 是 Zh06Fvu-e5c。 */}
+
+    {groups.map((g) => (
+      <section class="page-section">
+        <h2 class="page-section-title">【{g.code}】{g.title}</h2>
+
+        {g.demos.map((d) => (
+          <Fragment>
+            <h3 class="page-subsection-title">{d.title}</h3>
+            <div class="media-row">
+              {/* 開頁時只放封面圖和一顆播放鈕，沒有 <video> 元素，
+                  所以瀏覽器沒有東西可以轉圈。按下去才由下面的 script
+                  建立 <video> 並開始播，之後緩衝不夠時的轉圈是播放器原生的。 */}
+              <div class="video-facade"
+                   data-src={withBase(`videos/${d.video}.mp4`)}
+                   data-poster={withBase(`videos/${d.video}.jpg`)}>
+                <img class="page-video" src={withBase(`videos/${d.video}.jpg`)}
+                     alt="" width="1280" height="720" loading="lazy" decoding="async" />
+                <button class="video-play" type="button" aria-label={`播放 ${d.title}`}>
+                  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" fill="currentColor" />
+                  </svg>
+                </button>
+              </div>
+              <div class="media-text">
+                {/* 「【實驗概述】」和第一段同一行，後面的段落照常 */}
+                {d.text.map((p, i) => (
+                  <p>
+                    {i === 0 && <span class="media-label">【 實驗概述 】: </span>}
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Fragment>
+        ))}
+      </section>
+    ))}
+  </div>
 </BaseLayout>
+
+<script>
+  // 點封面 → 把封面換成真的 <video> 並直接播放。
+  // 這是使用者手動觸發的，所以 play() 帶聲音也不會被瀏覽器擋。
+  document.querySelectorAll<HTMLElement>(".video-facade").forEach((box) => {
+    box.addEventListener("click", () => {
+      const video = document.createElement("video");
+      video.className = "page-video";
+      video.controls = true;
+      video.playsInline = true;
+      video.poster = box.dataset.poster ?? "";
+
+      const source = document.createElement("source");
+      source.src = box.dataset.src ?? "";
+      source.type = "video/mp4";
+      video.appendChild(source);
+
+      box.replaceWith(video);
+      video.play().catch(() => {
+        /* 使用者在載入期間又按了暫停之類的，不用處理 */
+      });
+    }, { once: true });
+  });
+</script>

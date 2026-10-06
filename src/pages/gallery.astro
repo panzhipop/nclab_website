@@ -1,15 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
+import { withBase } from "../lib/url";
+
+// 網頁用的照片放 public/photos/，先縮到長邊 1600px 再放：
+//   convert 原檔.JPG -auto-orient -strip -resize 1600x1600\> -quality 82 public/photos/xxx.jpg
+// 相機直出的 JPG 動輒十幾 MB，直接放上去手機開這頁會很慢。
+const albums = [
+  {
+    title: "聖誕節照片",
+    photos: [{ src: "photos/christmas.jpg", alt: "聖誕節實驗室合照" }],
+  },
+  {
+    title: "期中聚餐照片",
+    photos: [{ src: "photos/dinner-mid.jpg", alt: "期中聚餐合照" }],
+  },
+  {
+    title: "期末聚餐照片",
+    photos: [{ src: "photos/dinner-final.jpg", alt: "期末聚餐合照" }],
+  },
+];
 ---
 
 <BaseLayout title="活動花絮" current="/gallery">
   <PageHero title="活動花絮" mobileOnly />
 
   <div class="page-body wrap">
-    <section class="page-section">
-      <h2 class="page-section-title">冬至煮湯圓照片</h2>
-      <h2 class="page-section-title">聖誕節照片</h2>
-    </section>
+    {albums.map((album) => (
+      <section class="page-section album">
+        <h2 class="page-section-title">{album.title}</h2>
+
+        <div class="photo-grid">
+          {album.photos.map((p) => (
+            <img src={withBase(p.src)} alt={p.alt} loading="lazy" decoding="async" />
+          ))}
+        </div>
+      </section>
+    ))}
   </div>
 </BaseLayout>

@@ -476,6 +476,115 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
 }
 
+/* 內頁嵌的影片。width:100% 跟著 .page-body 縮放，
+   aspect-ratio 讓瀏覽器在影片載入前就先把高度留好，
+   不會載到一半整頁往下跳。 */
+.page-video {
+  display: block;
+  width: 100%;
+  /* height: auto 是必要的：封面 <img> 帶 height="720" 屬性，瀏覽器會把它
+     當成 height: 720px，aspect-ratio 就不會生效，封面會被拉成直的 */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;               /* iframe 預設有 2px 內凹邊框，<video> 沒有；統一拿掉 */
+  border-radius: 12px;
+  background: #000;
+}
+
+/* 影片封面 + 播放鈕。.page-video 在這裡是 <img>，所以要 object-fit: contain
+   才會像 <video> 的 poster 一樣把直式封面（鳳凰）留黑邊而不是裁掉 */
+.video-facade {
+  position: relative;
+  cursor: pointer;
+}
+.video-facade .page-video { object-fit: contain; }
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(15, 60, 115, .85);   /* hero 的海軍藍，帶一點透明 */
+  color: #fff;
+  cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.video-play svg { margin-left: 3px; }   /* 三角形視覺上偏左，往右推一點才像置中 */
+.video-facade:hover .video-play,
+.video-play:focus-visible {
+  background: rgba(15, 60, 115, 1);
+  transform: scale(1.08);
+}
+.video-play:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* 影片在左、介紹在右。3:2 而不是對半：16:9 的影片分到 960px 的一半
+   只剩 ~470px 寬，太小；3:2 讓影片有 ~560px，文字欄 ~370px 一行
+   還能放 17 個中文字，兩邊都還過得去。
+   align-items: start 讓文字從影片頂端開始排，不會因為文字比影片短
+   而被拉到垂直置中、看起來像浮在半空。 */
+.media-row {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* 小標和影片之間留 12px；同一組裡第二支以後的影片小標往上多留一些，
+   讓「小標 + 影片 + 文字」一眼看得出是一組，而不是文字黏到下一支影片 */
+.page-subsection-title + .media-row { margin-top: 12px; }
+.media-row + .page-subsection-title { margin-top: 40px; }
+
+.media-text p {
+  margin: 0 0 12px;
+  line-height: 1.75;
+  color: var(--text);
+  /* 左右對齊。中文是逐字排版，瀏覽器把字距平均撐開就能齊右，
+     不會像英文那樣出現大段空白；text-justify: inter-character 讓
+     Firefox 也用同一套邏輯。英數詞（LLVM、Milk-V）照常不拆。 */
+  text-align: justify;
+  text-justify: inter-character;
+}
+.media-text p:last-child { margin-bottom: 0; }
+
+/* 第一段開頭的「【實驗概述】」，和內文同一行。顏色用 --brand，
+   和【乙】【己】大標同一個 token，深淺模式會一起換 */
+.media-label {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* 活動照片。限寬的是整節（標題 + 藍線 + 照片）而不是只有照片，
+   標題和底線才會跟照片一樣寬、一起置中。680px 是取中間值：
+   內文區 912px 太大、半行 448px 太小。 */
+.album {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+/* 一張照片時佔滿 680px，兩張時並排各 332px，
+   手機容器比 680px 窄就跟著縮成一欄。
+   min(320px, 100%) 的理由和 .member-grid 一樣：容器比 320px 窄時
+   軌道要能跟著縮，不然手機會橫向溢出。 */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: 16px;
+}
+
+.photo-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--wash);   /* lazy 載入前先有個淡色塊，不會空一格白的 */
+}
+
 /* ============================================================
    成員卡片
    ============================================================ */
@@ -558,6 +667,14 @@ a { color: inherit; text-decoration: none; }
 /* ::marker 只吃少數屬性（color、font-*、content），
    這裡用來讓項目符號跟標題同色，而不是預設的內文黑 */
 .research-list li::marker { color: var(--brand-soft); }
+
+/* 論文題目後面的學生姓名。淡色、留一個空格，讓題目本身是主角；
+   nowrap 避免三個字的名字被拆成兩行 */
+.thesis-who {
+  margin-left: .5em;
+  color: var(--muted);
+  white-space: nowrap;
+}
 
 /* ============================================================
    頁尾
@@ -646,6 +763,9 @@ a { color: inherit; text-decoration: none; }
   font-size: 16px;
   font-weight: 700;
 }
+/* 緊接在大標後面的第一個小標不要再多留 28px，大標自己已經有 20px 下距，
+   兩個加起來 48px 的空洞會讓小標看起來不屬於這一節 */
+.page-section-title + .page-subsection-title { margin-top: 0; }
 
 /* ---------- 個人資料 ---------- */
 .prof-card {
@@ -842,6 +962,9 @@ a { color: inherit; text-decoration: none; }
   .prof-facts dt { margin-top: 12px; }
 
   .two-col { grid-template-columns: minmax(0, 1fr); }
+
+  /* 手機改成上下疊：影片在上、文字在下 */
+  .media-row { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .news { padding: 32px 0 40px; }
 
   /* 頁尾三塊改直向堆疊。橫向排列時 flex-wrap 會讓聯絡資訊和版權

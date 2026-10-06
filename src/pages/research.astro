@@ -12,9 +12,20 @@ import areas from "../data/research.json";
       <section class="page-section">
         <h2 class="page-section-title">【{area.code}】{area.title}</h2>
 
-        <ul class="research-list">
-          {area.items.map((item) => <li>{item}</li>)}
-        </ul>
+        {/* 各年度論文題目，由新到舊。年度和題目來自 research.json 的 years */}
+        {[...area.years].sort((a, b) => b.year - a.year).map((y) => (
+          <Fragment>
+            <h3 class="page-subsection-title">{y.year} 級</h3>
+            <ul class="research-list">
+              {y.theses.map((t) => (
+                <li>
+                  {t.title}
+                  <span class="thesis-who">{t.student}</span>
+                </li>
+              ))}
+            </ul>
+          </Fragment>
+        ))}
       </section>
     ))}
   </div>

@@ -2,30 +2,32 @@
   {
     "group": "碩一",
     "people": [
-      { "name": "劉冠佑", "photo": "", "interests": [""] },
-      { "name": "吳國瑒", "photo": "", "interests": [""] },
-      { "name": "詹智翔", "photo": "", "interests": [""] },
-      { "name": "郭仲恩", "photo": "", "interests": [""] },
-      { "name": "陳昱伶", "photo": "", "interests": [""] },
-      { "name": "洪御桓", "photo": "", "interests": [""] }
+      { "name": "劉O佑", "photo": "", "interests": [""] },
+      { "name": "吳O瑒", "photo": "", "interests": [""] },
+      { "name": "詹O翔", "photo": "", "interests": [""] },
+      { "name": "郭O恩", "photo": "", "interests": [""] },
+      { "name": "陳O伶", "photo": "", "interests": [""] },
+      { "name": "洪O桓", "photo": "", "interests": [""] }
     ]
   },
   {
     "group": "碩二",
     "people": [
-      { "name": "葉宸佑", "photo": "", "interests": [""] },
-      { "name": "周宇謙", "photo": "", "interests": [""] },
-      { "name": "黃揖", "photo": "", "interests": [""] },
-      { "name": "江岱螢", "photo": "", "interests": [""] },
-      { "name": "黃柏睿", "photo": "", "interests": [""] },
-      { "name": "張祐程", "photo": "", "interests": [""] },
-      { "name": "謝育政", "photo": "", "interests": [""] }
+      { "name": "葉O佑", "photo": "", "interests": [""] },
+      { "name": "周O謙", "photo": "", "interests": [""] },
+      { "name": "黃O", "photo": "", "interests": [""] },
+      { "name": "江O螢", "photo": "", "interests": [""] },
+      { "name": "黃O睿", "photo": "", "interests": [""] },
+      { "name": "張O程", "photo": "", "interests": [""] },
+      { "name": "謝O政", "photo": "", "interests": [""] }
     ]
   },
   {
     "group": "博士",
     "people": [
-      { "name": "謝承翰", "photo": "", "interests": [""] }
+      { "name": "謝O翰", "photo": "", "interests": [""] }
     ]
   }
 ]
+
+

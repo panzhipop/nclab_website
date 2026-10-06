@@ -1,15 +1,15 @@
 [
   {
-    "group": "114 級",
+    "group": "115 級",
     "people": [
-      { "name": "張辰瑋", "photo": "", "interests": [""] },
-      { "name": "洪維辰", "photo": "", "interests": [""] },
-      { "name": "藍鴻毅", "photo": "", "interests": [""] },
-      { "name": "黃晟瑋", "photo": "", "interests": [""] },
-      { "name": "李旻謙", "photo": "", "interests": [""] },
-      { "name": "黃啟軒", "photo": "", "interests": [""] },
-      { "name": "王星諭", "photo": "", "interests": [""] },
-      { "name": "黃正杰", "photo": "", "interests": [""] }
+      { "name": "張O瑋", "photo": "", "interests": [""] },
+      { "name": "洪O辰", "photo": "", "interests": [""] },
+      { "name": "藍O毅", "photo": "", "interests": [""] },
+      { "name": "黃O瑋", "photo": "", "interests": [""] },
+      { "name": "李O謙", "photo": "", "interests": [""] },
+      { "name": "黃O軒", "photo": "", "interests": [""] },
+      { "name": "王O諭", "photo": "", "interests": [""] },
+      { "name": "黃O杰", "photo": "", "interests": [""] }
     ]
   }
 ]

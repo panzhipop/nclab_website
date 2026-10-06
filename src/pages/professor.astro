@@ -177,24 +177,57 @@ const sections = [
 
 <script>
   // 捲到哪一節，左側目錄就亮哪一條（HackMD 的做法）。
-  // rootMargin 把觸發帶壓縮到視窗中段，避免兩個相鄰區塊同時算命中，
-  // 造成目錄在捲動時來回閃爍。
+  //
+  // 規則：視窗上方 35% 處畫一條判定線，「最後一個」頂端已經越過這條線的
+  // 區塊就是目前所在。這樣任何時候都剛好有一節是亮的，不會空窗。
+  //
+  // 例外：頁面捲到底時直接亮最後一節。最後一節（指導成果）很短，
+  // 頁面到底了它的頂端還在判定線下面，靠判定線永遠輪不到它。
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]");
-  const sections = document.querySelectorAll<HTMLElement>(".prof-main .page-section");
+  const sections = Array.from(
+    document.querySelectorAll<HTMLElement>(".prof-main .page-section")
+  );
 
   if (links.length && sections.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          links.forEach((link) => {
-            link.classList.toggle("is-active", link.dataset.tocLink === entry.target.id);
-          });
-        }
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    );
+    const setActive = (id: string) => {
+      links.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.tocLink === id);
+      });
+    };
 
-    sections.forEach((section) => observer.observe(section));
+    const update = () => {
+      const doc = document.documentElement;
+      const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+      if (atBottom) {
+        setActive(sections[sections.length - 1].id);
+        return;
+      }
+
+      const line = window.innerHeight * 0.35;
+      let current = sections[0].id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) current = section.id;
+      }
+      setActive(current);
+    };
+
+    // scroll 事件每幀可能觸發好幾次，用 rAF 合併成每幀最多算一次
+    let queued = false;
+    const schedule = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        update();
+      });
+    };
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    // 「顯示更多」展開後頁面長度變了，但不會觸發 scroll，得自己重算
+    document.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("[data-bullet-more]")) schedule();
+    });
+    update();
   }
 </script>
