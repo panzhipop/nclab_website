@@ -1,7 +1,7 @@
 ---
 import { withBase } from "../lib/url";
 
-const { name, photo = "", interests = [] } = Astro.props;
+const { name, photo = "" } = Astro.props;
 ---
 
 <article class="member-card">
@@ -13,15 +13,5 @@ const { name, photo = "", interests = [] } = Astro.props;
     <div class="member-photo member-photo--empty" aria-hidden="true">{name.slice(0, 1)}</div>
   )}
 
-  <dl class="member-meta">
-    <dt>姓名</dt>
-    <dd class="member-name">{name}</dd>
-
-    {interests.length > 0 && (
-      <Fragment>
-        <dt>興趣</dt>
-        <dd>{interests.join("、")}</dd>
-      </Fragment>
-    )}
-  </dl>
+  <p class="member-name">{name}</p>
 </article>

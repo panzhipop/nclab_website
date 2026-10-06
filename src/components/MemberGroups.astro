@@ -14,11 +14,7 @@ const { groups = [] } = Astro.props;
 
       <div class="member-grid">
         {group.people.map((person) => (
-          <MemberCard
-            name={person.name}
-            photo={person.photo}
-            interests={person.interests}
-          />
+          <MemberCard name={person.name} photo={person.photo} />
         ))}
       </div>
     </section>
