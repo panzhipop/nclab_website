@@ -30,8 +30,3 @@ Desktop.ini
 
 # jetbrains setting folder
 .idea/
-
-# video files only; poster .jpg in public/videos/ stays tracked
-*.mp4
-*.mov
-*.webm

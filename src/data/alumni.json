@@ -37,5 +37,36 @@
       { "name": "謝O翰", "photo": "", "interests": [""] },
       { "name": "洪O雯", "photo": "", "interests": [""] }
     ]
+  },
+  {
+    "group": "113 級",
+    "people": [
+      { "name": "賴O揚", "photo": "", "interests": [""] },
+      { "name": "王O凱", "photo": "", "interests": [""] },
+      { "name": "余O芸", "photo": "", "interests": [""] },
+      { "name": "姚O鴻", "photo": "", "interests": [""] },
+      { "name": "楊O玉", "photo": "", "interests": [""] },
+      { "name": "宋O瑄", "photo": "", "interests": [""] },
+      { "name": "蔡O璋", "photo": "", "interests": [""] },
+      { "name": "蘇O達", "photo": "", "interests": [""] },
+      { "name": "王O淵", "photo": "", "interests": [""] },
+      { "name": "李O穎", "photo": "", "interests": [""] },
+      { "name": "張O瑋", "photo": "", "interests": [""] }
+    ]
+  },
+  {
+    "group": "112 級",
+    "people": [
+      { "name": "黃O盛", "photo": "", "interests": [""] },
+      { "name": "邱O陞", "photo": "", "interests": [""] },
+      { "name": "葉O柏", "photo": "", "interests": [""] },
+      { "name": "林O羚", "photo": "", "interests": [""] },
+      { "name": "許O仁", "photo": "", "interests": [""] },
+      { "name": "楊O笙（博士）", "photo": "", "interests": [""] },
+      { "name": "吳O橙", "photo": "", "interests": [""] },
+      { "name": "李O槿", "photo": "", "interests": [""] },
+      { "name": "黃O哲", "photo": "", "interests": [""] },
+      { "name": "江O丞", "photo": "", "interests": [""] }
+    ]
   }
 ]
